@@ -20,4 +20,4 @@ jobs:
         with:
           name: dist-without-markdown
           path: |
-            oskar-binaries-${{ matrix.os }}-x86_64.tar.gz
+            oskar-binaries-${{ runner.os }}-x86_64.tar.gz
