@@ -1,4 +1,3 @@
-
 mkdir binaries
 mkdir workspace
 mkdir package-$RUNNER_OS
@@ -11,5 +10,6 @@ cmake ../../workspace/. -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=../../package-$RU
 make -j4
 make install
 cd ../..
+cp install.sh package-$RUNNER_OS/
 tar -zcf oskar-binaries-$RUNNER_OS-x86_64.tar.gz package-$RUNNER_OS
 ls ../
