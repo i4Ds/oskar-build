@@ -27,9 +27,6 @@ jobs:
     strategy:
       matrix:
         os: [ macos-latest, ubuntu-latest ]
-    env:
-      OSKAR_INC_DIR: ~/oskar/include
-      OSKAR_LIB_DIR: ~/oskar/lib
     steps:
       - name: Download binaries
         uses: actions/download-artifact@v2
