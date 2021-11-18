@@ -22,6 +22,7 @@ jobs:
           path: |
             oskar-binaries-${{ runner.os }}-x86_64.tar.gz
   download_and_test:
+    needs: build_and_upload
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
