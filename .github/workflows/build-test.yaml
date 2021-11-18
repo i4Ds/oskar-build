@@ -18,6 +18,6 @@ jobs:
       - name: Archive binaries
         uses: actions/upload-artifact@v2
         with:
-          name: dist-without-markdown
+          name: OSKAR Binaries ${{ runner.os }}
           path: |
             oskar-binaries-${{ runner.os }}-x86_64.tar.gz
