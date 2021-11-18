@@ -9,5 +9,5 @@ cmake .. -DFIND_CUDA=OFF
 make -j4
 cd ..
 ls
-tar -zcvf /oskar-binaries-linux-x86_64.tar.gz ./build
+tar -zcvf ../oskar-binaries-linux-x86_64.tar.gz ./build
 
