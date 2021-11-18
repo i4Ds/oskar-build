@@ -1,2 +1,2 @@
-pip install numpy
-python test.py
+pip3 install numpy
+python3 test.py
