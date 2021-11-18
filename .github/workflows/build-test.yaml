@@ -1,4 +1,4 @@
-name: Build Mac Binary Package
+name: Build Binary Packages Linux, MacOS
 
 on: [push]
 
