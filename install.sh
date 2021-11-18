@@ -1,1 +1,1 @@
-cp package-macOS/oskar/. /usr/local
+cp -r oskar/ /usr/local
