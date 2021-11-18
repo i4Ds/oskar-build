@@ -3,7 +3,7 @@ name: Build Binary Packages Linux, MacOS
 on: [push]
 
 jobs:
-  build_and_test:
+  build_and_upload:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -21,3 +21,22 @@ jobs:
           name: OSKAR Binaries ${{ runner.os }}
           path: |
             oskar-binaries-${{ runner.os }}-x86_64.tar.gz
+  download_and_test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+    steps:
+      - name: Download binaries
+        uses: actions/download-artifact@v2
+        with:
+          name: OSKAR Binaries ${{ runner.os }}
+      - name: Install and test
+        shell: bash
+        run: |
+          tar -xvzf oskar-binaries-${{ runner.os }}-x86_64.tar.gz
+          cd package-${{ runner.os }}
+          chmod +x test.sh
+          chmod +x install.sh
+          ./install.sh
+          ./test.sh

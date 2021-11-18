@@ -12,5 +12,7 @@ make install
 ctest
 cd ../..
 cp install.sh package-$RUNNER_OS/
+cp test.sh package-$RUNNER_OS/
+cp test.py package-$RUNNER_OS/
 tar -zcf oskar-binaries-$RUNNER_OS-x86_64.tar.gz package-$RUNNER_OS
 ls ../
