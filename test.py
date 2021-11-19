@@ -1,7 +1,6 @@
 import oskar
 import numpy as np
 
-
 def testSimulation():
     sky_data = np.array([
         [20.0, -30.0, 1, 0, 0, 0, 100.0e6, -0.7, 0.0, 0,   0,   0],
@@ -26,7 +25,7 @@ def testSimulation():
             "length": "12:00:00.000"
         },
         "telescope": {
-            "input_directory": "../data/telescope.tm"
+            "input_directory": "telescope.tm"
         },
         "interferometer": {
             "ms_filename": "visibilities.ms",
@@ -42,4 +41,6 @@ def testSimulation():
     sim = oskar.Interferometer(settings=settings)
 
 
-testSimulation()
+
+if __name__ == "__main__":
+    testSimulation()
