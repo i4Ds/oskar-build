@@ -1,7 +1,7 @@
 mkdir ~/oskar
 cp -r oskar/ $HOME/oskar
-ls $HOME/oskar/lib
-ls $HOME/oskar/include
+echo "ls"
+ls $HOME/oskar
 export OSKAR_LIB_DIR="$HOME/oskar/lib"
 export OSKAR_INC_DIR="$HOME/oskar/include"
 git clone https://github.com/i4Ds/OSKAR.git
