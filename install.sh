@@ -1,5 +1,5 @@
 mkdir ~/oskar
-cp -r oskar/ $HOME/oskar
+cp -r oskar/. $HOME/oskar
 echo "ls"
 ls $HOME/oskar
 export OSKAR_LIB_DIR="$HOME/oskar/lib"
