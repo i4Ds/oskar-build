@@ -41,3 +41,9 @@ jobs:
           chmod +x install.sh
           ./install.sh
           ./test.sh
+      - name: Save test result
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results ${{ runner.os }}
+          path: |
+            visibilites.ms
