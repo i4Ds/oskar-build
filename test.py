@@ -39,8 +39,9 @@ def testSimulation():
 
     # Set the sky model and run the simulation.
     sim = oskar.Interferometer(settings=settings)
-
+    print(sim)
 
 
 if __name__ == "__main__":
+    print("test")
     testSimulation()
