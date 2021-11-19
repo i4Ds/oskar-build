@@ -2,7 +2,7 @@ import oskar
 import numpy as np
 
 
-def testSimulation:
+def testSimulation():
     sky_data = np.array([
         [20.0, -30.0, 1, 0, 0, 0, 100.0e6, -0.7, 0.0, 0,   0,   0],
         [20.0, -30.5, 3, 2, 2, 0, 100.0e6, -0.7, 0.0, 600, 50,  45],
