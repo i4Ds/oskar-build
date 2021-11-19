@@ -12,7 +12,7 @@ def testSimulation():
 
     params = {
         "simulator": {
-            "use_gpus": False
+            "use_gpus": False,
             "double_precision" = False
         },
         "observation" : {
