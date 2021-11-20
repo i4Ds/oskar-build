@@ -2,7 +2,15 @@ mkdir binaries
 mkdir workspace
 mkdir package-$RUNNER_OS
 mkdir package-$RUNNER_OS/oskar
+
+#install casacore
 cd workspace
+mkdir casacore
+cd casacore
+apt-get download casacore-dev
+cd ..
+
+#install oksar
 git clone https://github.com/OxfordSKA/OSKAR.git .
 mkdir build
 cd build
