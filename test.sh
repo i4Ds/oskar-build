@@ -7,6 +7,6 @@ cp -r OSKAR-2.7-Example-Data/telescope.tm .
 echo "check for dir site-packages"
 dir=$(python3 -m site --user-site)
 echo $dir
-ls $dir
+ls $dir/oskar
 
 python3 test.py
