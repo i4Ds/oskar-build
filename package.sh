@@ -29,7 +29,7 @@ echo "*- starting oskar build --------------------------------------------------
 mkdir -p $OSKAR_BUILD_DIR
 
 cd $CASACORE_LIB_DIR
-for filename in ./*.so; do
+for filename in *.so; do
         ld -l:"$filename"
 done
 
