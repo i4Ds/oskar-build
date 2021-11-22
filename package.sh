@@ -7,12 +7,13 @@ OSKAR_INSTALL_DIR=$HOME/package-$RUNNER_OS/oskar
 CASACORE_DOWNLOAD_DIR=$HOME/workspace/casacore
 CASACORE_PACKAGE_DIR=$HOME/workspace/casacore/tmp
 
-echo "*- Download Casacore ----------------------------------------------------------------------- *"
+echo "*- Download CASACORE ----------------------------------------------------------------------- *"
 
-mkdir -p $CASACORE_INSTALL_DIR
-cd $CASACORE_INSTALL_DIR
-dpkg-deb -R casacore-dev_3.2.1-4build3_amd64.deb $CASACORE_PACKAGE_DIR
+mkdir -p $CASACORE_DOWNLOAD_DIR
+mkdir -p $CASACORE_PACKAGE_DIR
+cd $CASACORE_DOWNLOAD_DIR
 apt-get download casacore-dev
+dpkg-deb -R casacore-dev_3.2.1-4build3_amd64.deb $CASACORE_PACKAGE_DIR
 ls $CASACORE_PACKAGE_DIR
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
