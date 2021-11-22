@@ -17,8 +17,8 @@ dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
 CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
 CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/usr/lib/x86_64-linux-gnu
 #CASACORE_LIBRARIES=$CASACORE_LIB_DIR
-ls $CASACORE_LIB_DIR
-ls $CASACORE_INC_DIR
+echo $CASACORE_LIB_DIR
+echo $CASACORE_INC_DIR
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
