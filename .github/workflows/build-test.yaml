@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: Install build tools
         run: |
-          DEBIAN_
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -y git build-essential cmake
       - name: Checkout repository
