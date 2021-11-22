@@ -1,18 +1,18 @@
 #!/bin/sh
 
-start_dir=$(PWD)
+START_DIR=$(pwd)
 #Set directories
-OSKAR_SRC_DIR=$HOME/workspace/oskar
-OSKAR_BUILD_DIR=$HOME/workspace/oskar/build
-OSKAR_INSTALL_DIR=$HOME/package-$RUNNER_OS/oskar
-CASACORE_DOWNLOAD_DIR=$HOME/workspace/casacore
-CASACORE_PACKAGE_DIR=$HOME/workspace/casacore/tmp
+OSKAR_SRC_DIR=$START_DIR/workspace/oskar
+OSKAR_BUILD_DIR=$START_DIR/workspace/oskar/build
+OSKAR_INSTALL_DIR=$START_DIR/package-$RUNNER_OS/oskar
+#CASACORE_DOWNLOAD_DIR=$START_DIR/workspace/casacore
+#CASACORE_PACKAGE_DIR=$START_DIR/workspace/casacore/tmp
 
 echo "*- Download CASACORE ----------------------------------------------------------------------- *"
 
-mkdir -p $CASACORE_DOWNLOAD_DIR
-mkdir -p $CASACORE_PACKAGE_DIR
-cd $CASACORE_DOWNLOAD_DIR
+#mkdir -p $CASACORE_DOWNLOAD_DIR
+#mkdir -p $CASACORE_PACKAGE_DIR
+#cd $CASACORE_DOWNLOAD_DIR
 apt-get update
 apt-get install -y casacore-dev
 #apt-get download casacore-dev
@@ -46,7 +46,7 @@ echo "*- Test Oskar ------------------------------------------------------------
 #ctest
 
 echo "*- Package package ------------------------------------------------------------------------- *"
-cd $start_dir
+cd $START_DIR
 ls .
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
