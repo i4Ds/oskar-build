@@ -14,7 +14,7 @@ mkdir -p $CASACORE_PACKAGE_DIR
 cd $CASACORE_DOWNLOAD_DIR
 apt-get download casacore-dev
 dpkg-deb -R casacore-dev_3.2.1-4build3_amd64.deb $CASACORE_PACKAGE_DIR
-ls $CASACORE_PACKAGE_DIR
+ls $CASACORE_PACKAGE_DIR/bin
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
