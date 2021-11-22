@@ -30,7 +30,7 @@ mkdir -p $OSKAR_BUILD_DIR
 
 cd $CASACORE_LIB_DIR
 for filename in *.so; do
-        ld -l:"$filename"
+        ld -l:"$filename" --verbose
 done
 
 cd $OSKAR_BUILD_DIR
