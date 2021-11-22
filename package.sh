@@ -27,12 +27,13 @@ git clone https://github.com/OxfordSKA/OSKAR.git $OSKAR_SRC_DIR
 echo "*- starting oskar build -------------------------------------------------------------------- *"
 
 mkdir -p $OSKAR_BUILD_DIR
-cd $OSKAR_BUILD_DIR
 
-for filename in $CASACORE_LIB_DIR/*.so; do
+cd $CASACORE_LIB_DIR
+for filename in ./*.so; do
         ld -l:"$filename"
 done
 
+cd $OSKAR_BUILD_DIR
 cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
 make -j4
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
