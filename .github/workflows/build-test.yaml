@@ -14,7 +14,7 @@ jobs:
       - name: Package
         run: |
           chmod +x package.sh
-          ./package.sh
+          bash -e package.sh
       - name: Archive binaries
         uses: actions/upload-artifact@v2
         with:
