@@ -6,18 +6,12 @@ OSKAR_BUILD_DIR=$HOME/workspace/oskar/build
 OSKAR_INSTALL_DIR=$HOME/package-$RUNNER_OS/oskar
 CASACORE_INSTALL_DIR=$HOME/workspace/casacore
 
-echo "*- creating folders ------------------------------------------------------------------------ *"
-echo $OSKAR_SRC_DIR
+echo "*- Download Casacore ----------------------------------------------------------------------- *"
 
 mkdir -p $CASACORE_INSTALL_DIR
-
-
-echo "*- folders created ------------------------------------------------------------------------- *"
-
-#download casacore
-#cd $CASACORE_INSTALL_DIR
-#apt-get download casacore-dev
-#ls
+cd $CASACORE_INSTALL_DIR
+apt-get download casacore-dev
+ls $CASACORE_INSTALL_DIR
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
@@ -33,7 +27,7 @@ echo "*- Installing Oskar ------------------------------------------------------
 mkdir -p $OSKAR_INSTALL_DIR
 make install
 echo "*- Test Oskar ------------------------------------------------------------------------------ *"
-ctest
+#ctest
 
 echo "*- Making package -------------------------------------------------------------------------- *"
 cd $HOME
