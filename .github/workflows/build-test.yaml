@@ -10,7 +10,7 @@ jobs:
       - name: Install build tools
         run: |
           apt-get update
-          apt-get install -y git build-essential
+          apt-get install -y git build-essential cmake
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Package
