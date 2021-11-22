@@ -1,9 +1,12 @@
-mkdir ~/oskar
-cp -r oskar/. $HOME/oskar
+#!/bin/sh
+
+CDIR=$(pwd)
+mkdir $CDIR/oskar_
+cp -r oskar/. $CDIR/oskar_
 echo "ls"
-ls $HOME/oskar
-export OSKAR_LIB_DIR="$HOME/oskar/lib"
-export OSKAR_INC_DIR="$HOME/oskar/include"
+ls $CDIR/oskar_
+export OSKAR_LIB_DIR="$CDIR/oskar_/lib"
+export OSKAR_INC_DIR="$CDIR/oskar_/include"
 #git clone https://github.com/i4Ds/OSKAR.git
 #cd OSKAR/python
 #python3 setup.py install --user --prefix=
