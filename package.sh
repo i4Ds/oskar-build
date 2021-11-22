@@ -36,6 +36,7 @@ echo "*- Test Oskar ------------------------------------------------------------
 
 echo "*- Making package -------------------------------------------------------------------------- *"
 cd $HOME
+ls
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
 cp test.py package-$RUNNER_OS/
