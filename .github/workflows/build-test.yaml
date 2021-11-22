@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu
     steps:
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install -y git build-essential
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Package
