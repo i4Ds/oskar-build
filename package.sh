@@ -46,7 +46,7 @@ echo "*- Test Oskar ------------------------------------------------------------
 #ctest
 
 echo "*- Making package -------------------------------------------------------------------------- *"
-cd $HOME
+cd /__w/oskar-build/oskar-build
 ls .
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
