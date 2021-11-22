@@ -11,12 +11,12 @@ mkdir -p $OSKAR_BUILD_DIR
 mkdir -p $OSKAR_INSTALL_DIR
 mkdir -p $CASACORE_INSTALL_DIR
 
-#install casacore
-cd $CASACORE_INSTALL_DIR
-apt-get download casacore-dev
-ls
+#download casacore
+#cd $CASACORE_INSTALL_DIR
+#apt-get download casacore-dev
+#ls
 
-#install oksar
+#build and install oksar
 cd $OSKAR_SRC_DIR
 git clone https://github.com/OxfordSKA/OSKAR.git .
 cd $OSKAR_BUILD_DIR
