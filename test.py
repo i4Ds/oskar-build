@@ -28,7 +28,7 @@ def testSimulation():
             "input_directory": "telescope.tm"
         },
         "interferometer": {
-            "ms_filename": "visibilities.ms",
+            "vis_filename": "result.vis",
             "channel_bandwidth_hz": 1e6,
             "time_average_sec": 10
         }

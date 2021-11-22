@@ -45,4 +45,4 @@ jobs:
         with:
           name: Test Results ${{ runner.os }}
           path: |
-            visibilites.ms
+            result.vis
