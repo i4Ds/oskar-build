@@ -11,7 +11,8 @@ apt-get download casacore-dev
 cd ..
 
 #install oksar
-git clone https://github.com/OxfordSKA/OSKAR.git
+mkdir oskar
+git clone https://github.com/OxfordSKA/OSKAR.git oskar/.
 cd oskar
 mkdir build
 cd build
