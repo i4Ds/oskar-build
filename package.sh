@@ -14,7 +14,8 @@ mkdir -p $CASACORE_PACKAGE_DIR
 cd $CASACORE_DOWNLOAD_DIR
 apt-get download casacore-dev
 dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
-ls $CASACORE_PACKAGE_DIR/usr
+CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include
+CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/usr/lib
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
@@ -24,7 +25,7 @@ echo "*- starting oskar build --------------------------------------------------
 
 mkdir -p $OSKAR_BUILD_DIR
 cd $OSKAR_BUILD_DIR
-cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF -DCASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/usr/lib -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF -DCASACORE_LIB_DIR=$CASACORE_LIB_DIR -DCASACORE_INC_DIR=$DCASACORE_INC_DIR -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
 make -j4
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
