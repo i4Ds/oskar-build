@@ -4,10 +4,8 @@ on: [push]
 
 jobs:
   build_and_upload:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
+    runs-on: ubuntu-latest
+    container: ubuntu
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -23,10 +21,8 @@ jobs:
             oskar-binaries-${{ runner.os }}-x86_64.tar.gz
   download_and_test:
     needs: build_and_upload
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
+    runs-on: ubuntu-latest
+    container: ubuntu
     steps:
       - name: Download binaries
         uses: actions/download-artifact@v2
