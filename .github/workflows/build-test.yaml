@@ -39,8 +39,8 @@ jobs:
           cd package-${{ runner.os }}
           chmod +x test.sh
           chmod +x install.sh
-          ./install.sh
-          ./test.sh
+          bash -e install.sh
+          bash -e test.sh
       - name: Save test result
         uses: actions/upload-artifact@v2
         with:
