@@ -34,7 +34,7 @@ mkdir -p $OSKAR_BUILD_DIR
 #done
 
 cd $OSKAR_BUILD_DIR
-cmake -E env CXXFLAGS=-L $CASACORE_LIB_DIR $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+cmake -E env CXXFLAGS="-L $CASACORE_LIB_DIR" $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
 make -j4
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
