@@ -16,7 +16,7 @@ git clone https://github.com/OxfordSKA/OSKAR.git oskar/.
 cd oskar
 mkdir build
 cd build
-cmake ../../../workspace/. -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=../../package-$RUNNER_OS/oskar
+cmake ../../workspace/. -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=../../package-$RUNNER_OS/oskar
 make -j4
 make install
 ctest
