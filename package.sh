@@ -1,5 +1,6 @@
 #!/bin/sh
 
+ls .
 #Set directories
 OSKAR_SRC_DIR=$HOME/workspace/oskar
 OSKAR_BUILD_DIR=$HOME/workspace/oskar/build
@@ -45,7 +46,7 @@ echo "*- Test Oskar ------------------------------------------------------------
 #ctest
 
 echo "*- Making package -------------------------------------------------------------------------- *"
-cd $HOME/work/oskar_build
+cd $HOME
 ls .
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
