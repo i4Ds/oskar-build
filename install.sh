@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CDIR=$(pwd)
-OSKAR_INSTALL_DIR=$HOME/oskar_
+OSKAR_INSTALL_DIR=$HOME/oskar
 
 mkdir $OSKAR_INSTALL_DIR
 cp -r oskar/. $OSKAR_INSTALL_DIR
