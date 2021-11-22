@@ -28,13 +28,13 @@ echo "*- starting oskar build --------------------------------------------------
 
 mkdir -p $OSKAR_BUILD_DIR
 
-cd $CASACORE_LIB_DIR
-for filename in *.so; do
-        ld -l:"$filename" --verbose
-done
+#cd $CASACORE_LIB_DIR
+#for filename in *.so; do
+#        ld -l:"$filename" --verbose
+#done
 
 cd $OSKAR_BUILD_DIR
-cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+cmake -E env CXXFLAGS=-L $CASACORE_LIB_DIR $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
 make -j4
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
