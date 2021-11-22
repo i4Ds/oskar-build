@@ -12,6 +12,7 @@ echo "*- Download CASACORE -----------------------------------------------------
 mkdir -p $CASACORE_DOWNLOAD_DIR
 mkdir -p $CASACORE_PACKAGE_DIR
 cd $CASACORE_DOWNLOAD_DIR
+apt-get update
 apt-get download casacore-dev
 dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
 CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
