@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ls .
+echo $PWD
 #Set directories
 OSKAR_SRC_DIR=$HOME/workspace/oskar
 OSKAR_BUILD_DIR=$HOME/workspace/oskar/build
