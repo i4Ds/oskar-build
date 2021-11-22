@@ -10,7 +10,7 @@ jobs:
       - name: Install build tools
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y git build-essential cmake
+          DEBIAN_FRONTEND=noninteractive apt-get install -y git build-essential cmake python3
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Package
