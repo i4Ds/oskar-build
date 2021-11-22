@@ -17,8 +17,8 @@ dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
 CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include
 CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/usr/lib
 export CASACORE_LIBRARIES=$CASACORE_LIB_DIR
-ls CASACORE_LIB_DIR
-ls CASACORE_INC_DIR
+ls $CASACORE_LIB_DIR
+ls $CASACORE_INC_DIR
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
@@ -38,7 +38,8 @@ echo "*- Test Oskar ------------------------------------------------------------
 
 echo "*- Making package -------------------------------------------------------------------------- *"
 cd $HOME
-ls
+ls workspace
+ls work
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
 cp test.py package-$RUNNER_OS/
