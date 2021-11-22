@@ -8,7 +8,7 @@ CASACORE_INSTALL_DIR=$HOME/workspace/casacore
 
 echo "*- creating folders ------------------------------------------------------------------------ *"
 echo $OSKAR_SRC_DIR
-mkdir -p $OSKAR_SRC_DIR
+#mkdir -p $OSKAR_SRC_DIR
 mkdir -p $OSKAR_BUILD_DIR
 mkdir -p $OSKAR_INSTALL_DIR
 mkdir -p $CASACORE_INSTALL_DIR
