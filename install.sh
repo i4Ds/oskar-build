@@ -7,8 +7,12 @@ mkdir $OSKAR_INSTALL_DIR
 cp -r oskar/. $OSKAR_INSTALL_DIR
 echo "ls"
 ls $OSKAR_INSTALL_DIR
+ls $OSKAR_INSTALL_DIR/lib
+ls $OSKAR_INSTALL_DIR/include
+
 export OSKAR_LIB_DIR="$OSKAR_INSTALL_DIR/lib"
 export OSKAR_INC_DIR="$OSKAR_INSTALL_DIR/include"
+
 #git clone https://github.com/i4Ds/OSKAR.git
 #cd OSKAR/python
 #python3 setup.py install --user --prefix=
