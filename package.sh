@@ -11,14 +11,15 @@ apt-get download casacore-dev
 cd ..
 
 #install oksar
-git clone https://github.com/OxfordSKA/OSKAR.git .
+git clone https://github.com/OxfordSKA/OSKAR.git
+cd oskar
 mkdir build
 cd build
-cmake ../../workspace/. -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=../../package-$RUNNER_OS/oskar
+cmake ../../../workspace/. -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=../../package-$RUNNER_OS/oskar
 make -j4
 make install
 ctest
-cd ../..
+cd ../../..
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
 cp test.py package-$RUNNER_OS/
