@@ -28,7 +28,8 @@ echo "*- starting oskar build --------------------------------------------------
 
 mkdir -p $OSKAR_BUILD_DIR
 cd $OSKAR_BUILD_DIR
-cmake -E env LDFLAGS="-rpath=$CASACORE_LIB_DIR" $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+ld -l:$CASACORE_LIB_DIR
+cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF  -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
 make -j4
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
