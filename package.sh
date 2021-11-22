@@ -7,7 +7,7 @@ OSKAR_INSTALL_DIR=$HOME/package-$RUNNER_OS/oskar
 CASACORE_INSTALL_DIR=$HOME/workspace/casacore
 
 echo "*- creating folders ------------------------------------------------------------------------ *"
-
+echo $OSKAR_SRC_DIR
 mkdir -p $OSKAR_SRC_DIR
 mkdir -p $OSKAR_BUILD_DIR
 mkdir -p $OSKAR_INSTALL_DIR
@@ -25,8 +25,7 @@ echo "*- folders created -------------------------------------------------------
 
 echo "*- download oskar -------------------------------------------------------------------------- *"
 #build and install oksar
-cd $OSKAR_SRC_DIR
-git clone https://github.com/OxfordSKA/OSKAR.git .
+git clone https://github.com/OxfordSKA/OSKAR.git $OSKAR_SRC_DIR
 echo "*- starting oskar build -------------------------------------------------------------------- *"
 cd $OSKAR_BUILD_DIR
 cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
