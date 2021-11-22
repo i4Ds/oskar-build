@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo $PWD
+start_dir=$(PWD)
 #Set directories
 OSKAR_SRC_DIR=$HOME/workspace/oskar
 OSKAR_BUILD_DIR=$HOME/workspace/oskar/build
@@ -45,11 +45,12 @@ make install
 echo "*- Test Oskar ------------------------------------------------------------------------------ *"
 #ctest
 
-echo "*- Making package -------------------------------------------------------------------------- *"
-cd /__w/oskar-build/oskar-build
+echo "*- Package package ------------------------------------------------------------------------- *"
+cd $start_dir
 ls .
 cp install.sh package-$RUNNER_OS/
 cp test.sh package-$RUNNER_OS/
 cp test.py package-$RUNNER_OS/
+echo "*- Taring package -------------------------------------------------------------------------- *"
 tar -zcf oskar-binaries-$RUNNER_OS-x86_64.tar.gz package-$RUNNER_OS
 
