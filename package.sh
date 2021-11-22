@@ -13,6 +13,8 @@ mkdir -p $OSKAR_BUILD_DIR
 mkdir -p $OSKAR_INSTALL_DIR
 mkdir -p $CASACORE_INSTALL_DIR
 
+ls
+
 echo "*- folders created ------------------------------------------------------------------------- *"
 
 #download casacore
