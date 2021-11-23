@@ -45,4 +45,4 @@ jobs:
         with:
           name: Test Results ${{ runner.os }}
           path: |
-            result.vis
+            package-${{ runner.os }}/result.vis
