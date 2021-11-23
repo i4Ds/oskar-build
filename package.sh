@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 START_DIR=$(pwd)
 #Set directories
