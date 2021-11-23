@@ -5,8 +5,8 @@ START_DIR=$(pwd)
 OSKAR_SRC_DIR=$START_DIR/workspace/oskar
 OSKAR_BUILD_DIR=$START_DIR/workspace/oskar/build
 OSKAR_INSTALL_DIR=$START_DIR/package-$RUNNER_OS/oskar
-#CASACORE_DOWNLOAD_DIR=$START_DIR/workspace/casacore
-#CASACORE_PACKAGE_DIR=$START_DIR/workspace/casacore/tmp
+CASACORE_DOWNLOAD_DIR=$START_DIR/workspace/casacore
+CASACORE_PACKAGE_DIR=$START_DIR/workspace/casacore/tmp
 
 echo "*- Download CASACORE ----------------------------------------------------------------------- *"
 
