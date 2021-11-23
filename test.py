@@ -1,5 +1,6 @@
 import oskar
 import numpy as np
+import os
 
 def testSimulation():
     sky_data = np.array([
@@ -39,8 +40,10 @@ def testSimulation():
 
     # Set the sky model and run the simulation.
     sim = oskar.Interferometer(settings=settings)
+    sim.set_sky_model(sky)
     sim.run()
     print(sim)
+    print(os.getcwd())
 
 
 if __name__ == "__main__":
