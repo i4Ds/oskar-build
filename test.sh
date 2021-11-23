@@ -10,3 +10,4 @@ echo $dir
 ls $dir/oskar
 
 python3 test.py
+ls
