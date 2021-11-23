@@ -17,8 +17,10 @@ cd $CASACORE_DOWNLOAD_DIR
 #apt-get install -y casacore-dev
 apt-get download casacore-dev
 dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
+mkdir $CASACORE_PACKAGE_DIR/lib
+mv -r $CASACORE_PACKAGE_DIR/usr/lib/x86_64-linux-gnu $CASACORE_PACKAGE_DIR/lib
 CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
-CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/usr/lib/x86_64-linux-gnu
+CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/lib
 #CASACORE_LIBRARIES=$CASACORE_LIB_DIR
 #ls $CASACORE_LIB_DIR
 #echo $CASACORE_INC_DIR
