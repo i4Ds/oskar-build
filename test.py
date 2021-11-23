@@ -29,7 +29,7 @@ def testSimulation():
             "input_directory": "telescope.tm"
         },
         "interferometer": {
-            "oskar_vis_filename": "$GITHUB_WORKSPACE/result.vis",
+            "oskar_vis_filename": "result.vis",
             "channel_bandwidth_hz": 1e6,
             "time_average_sec": 10
         }
