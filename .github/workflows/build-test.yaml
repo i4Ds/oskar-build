@@ -45,4 +45,4 @@ jobs:
         with:
           name: Test Results ${{ runner.os }}
           path: |
-            ${{ home }}/result.vis
+            ${{ github.workspace }}/result.vis
