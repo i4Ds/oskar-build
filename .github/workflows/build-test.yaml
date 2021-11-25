@@ -65,7 +65,7 @@ jobs:
         run: |
           tar -xvzf oskar-binaries-${{ runner.os }}-x86_64.tar.gz
           mkdir oskar
-          cp package-${{ runner.os }}/oskar/* oskar/
+          cp -r package-${{ runner.os }}/oskar/* oskar/
       - name: Package binaries as deb
         run: |
           chmod +x package-debian.sh
