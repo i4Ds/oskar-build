@@ -25,12 +25,10 @@ mkdir $PACKAGE_NAME/DEBIAN
 
 touch $PACKAGE_NAME/DEBIAN/control
 
-cat > $PACKAGE_NAME/DEBIAN/control <<- EOM
-     Package: $PACKAGE_NAME
-     Version: $VERSION
-     Architecture: $ARCHITECTURE
-     Maintainer: Christoph Vögele <christoph.voegele@fhnw.ch>
-     Description: SKA Simulation Software
-     EOM
+echo "Package: $PACKAGE_NAME" >> $PACKAGE_NAME/DEBIAN/control
+echo "Version: $VERSION" >> $PACKAGE_NAME/DEBIAN/control
+echo "Architecture: $ARCHITECTURE" >> $PACKAGE_NAME/DEBIAN/control
+echo "Maintainer: Christoph Vögele <christoph.voegele@fhnw.ch>" >> $PACKAGE_NAME/DEBIAN/control
+echo "Description: SKA Simulation Software" >> $PACKAGE_NAME/DEBIAN/control
 
 dpkg-deb --build --root-owner-group $PACKAGE_NAME
