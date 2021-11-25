@@ -1,4 +1,4 @@
-name: Build Binary Packages Linux, MacOS
+name: Build Binary Packages Linux
 
 on: [ push ]
 
@@ -89,6 +89,5 @@ jobs:
       - name: Install debian package
         run: |
           ls
-          cd Debian_Package
           apt-get install -f *.deb
 
