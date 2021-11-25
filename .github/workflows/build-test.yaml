@@ -36,7 +36,7 @@ jobs:
         shell: bash
         run: |
           apt-get update
-          apt-get install casacore-dev
+          apt-get install -y casacore-dev
           tar -xvzf oskar-binaries-${{ runner.os }}-x86_64.tar.gz
           cd package-${{ runner.os }}
           chmod +x test.sh
