@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NAME="OSKAR"
+NAME="oskar"
 VERSION="1.0"
 REVISION="0"
 ARCHITECTURE="amd64"
