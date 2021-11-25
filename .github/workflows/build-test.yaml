@@ -89,5 +89,5 @@ jobs:
       - name: Install debian package
         run: |
           ls
-          apt-get install -f *.deb
+          dpkg -i *.deb
 
