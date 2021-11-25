@@ -32,11 +32,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: OSKAR Binaries ${{ runner.os }}
+      - name: Install essential components
+        run: |
+          apt-get update
+          apt-get install -y python3 python3-pip casacore-dev
       - name: Install and test
         shell: bash
         run: |
-          apt-get update
-          apt-get install -y casacore-dev
           tar -xvzf oskar-binaries-${{ runner.os }}-x86_64.tar.gz
           cd package-${{ runner.os }}
           chmod +x test.sh
