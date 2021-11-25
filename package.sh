@@ -31,7 +31,6 @@ echo "*- Download CASACORE -----------------------------------------------------
 #apt-get update
 #apt-get install -y casacore-dev
 
-
 #CASACORE_LIBRARIES=$CASACORE_LIB_DIR
 #ls $CASACORE_LIB_DIR
 #echo $CASACORE_INC_DIR
@@ -55,7 +54,7 @@ cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF \
 #      -DCASACORE_LIB_DIR=$CASACORE_LIB_DIR \
 #      -DCASACORE_INC_DIR=$CASACORE_INC_DIR \
 
-make -n
+make
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
 make install
