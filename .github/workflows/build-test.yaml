@@ -51,6 +51,7 @@ jobs:
           name: Test Results ${{ runner.os }}
           path: |
             package-${{ runner.os }}/result.vis
+            package-${{ runner.os }}/result.ms
   package_deb:
     needs: build_and_upload
     runs-on: ubuntu-latest

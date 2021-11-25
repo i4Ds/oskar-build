@@ -30,6 +30,7 @@ def testSimulation():
         },
         "interferometer": {
             "oskar_vis_filename": "result.vis",
+            "ms_filename": "result.ms"
             "channel_bandwidth_hz": 1e6,
             "time_average_sec": 10
         }
