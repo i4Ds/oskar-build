@@ -10,17 +10,28 @@ CASACORE_PACKAGE_DIR=$START_DIR/package-$RUNNER_OS/casacore
 
 echo "*- Download CASACORE ----------------------------------------------------------------------- *"
 
-mkdir -p $CASACORE_DOWNLOAD_DIR
-mkdir -p $CASACORE_PACKAGE_DIR
-cd $CASACORE_DOWNLOAD_DIR
+#mkdir -p $CASACORE_DOWNLOAD_DIR
+#mkdir -p $CASACORE_PACKAGE_DIR
+#cd $CASACORE_DOWNLOAD_DIR
+#
+#if [ $RUNNER_OS == "Linux" ]; then
+#    apt-get download casacore-dev
+#    dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
+#    mkdir $CASACORE_PACKAGE_DIR/lib
+#    mv $CASACORE_PACKAGE_DIR/usr/lib/x86_64-linux-gnu/* $CASACORE_PACKAGE_DIR/lib
+#elif [ $RUNNER_OS == "macOS" ] then
+#    brew install
+#
+#
+#fi
+#
+#CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
+#CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/lib
+
 #apt-get update
 #apt-get install -y casacore-dev
-apt-get download casacore-dev
-dpkg-deb -R casacore-dev*.deb $CASACORE_PACKAGE_DIR
-mkdir $CASACORE_PACKAGE_DIR/lib
-mv $CASACORE_PACKAGE_DIR/usr/lib/x86_64-linux-gnu/* $CASACORE_PACKAGE_DIR/lib
-CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
-CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/lib
+
+
 #CASACORE_LIBRARIES=$CASACORE_LIB_DIR
 #ls $CASACORE_LIB_DIR
 #echo $CASACORE_INC_DIR
@@ -39,7 +50,11 @@ mkdir -p $OSKAR_BUILD_DIR
 #done
 
 cd $OSKAR_BUILD_DIR
-cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF -DCASACORE_LIB_DIR=$CASACORE_LIB_DIR -DCASACORE_INC_DIR=$CASACORE_INC_DIR -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+cmake $OSKAR_SRC_DIR -DFIND_CUDA=OFF \
+       -DCMAKE_INSTALL_PREFIX=$OSKAR_INSTALL_DIR
+#      -DCASACORE_LIB_DIR=$CASACORE_LIB_DIR \
+#      -DCASACORE_INC_DIR=$CASACORE_INC_DIR \
+
 make -n
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
 mkdir -p $OSKAR_INSTALL_DIR
