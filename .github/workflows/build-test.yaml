@@ -88,5 +88,6 @@ jobs:
           name: Debian_Package
       - name: Install debian package
         run: |
+          cd Debian_Package
           apt-get install -f *.deb
 
