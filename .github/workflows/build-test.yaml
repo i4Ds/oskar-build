@@ -74,6 +74,19 @@ jobs:
       - name: Upload deb to artefacts
         uses: actions/upload-artifact@v2
         with:
-          name: Debian Package
+          name: Debian_Package
           path: |
             *.deb
+  test_deb_package:
+    needs: package_deb
+    runs-on: ubuntu-latest
+    container: ubuntu
+    steps:
+      - name: Download debian package
+        uses: actions/download-artifact@v2
+        with:
+          name: Debian_Package
+      - name: Install debian package
+        run: |
+          apt-get install -f *.deb
+
