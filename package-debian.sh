@@ -5,9 +5,17 @@ $ARCHITECTURE=amd64
 
 $PACKAGE_NAME=$OSKAR_$VERSION-$REVISON_$ARCHITECTURE
 
-mkdir $PACKAGE_NAME
+$BIN_DIR=$PACKAGE_NAME/usr/local/bin
+$LIB_DIR=$PACKAGE_NAME/usr/local/lib
+$INC_DIR=$PACKAGE_NAME/usr/local/include
 
-cp -r oskar/. $PACKAGE_NAME
+mkdir -p $BIN_DIR
+mkdir -p $LIB_DIR
+mkdir -p $INC_DIR
+
+cp -r oskar/bin/* $BIN_DIR
+cp -r oskar/lib/* $LIB_DIR
+cp -r oskar/include/* $INC_DIR
 
 mkdir $PACKAGE_NAME/DEBIAN
 
