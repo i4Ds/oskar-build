@@ -10,7 +10,7 @@ jobs:
       - name: Install build tools
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y git build-essential cmake python3
+          DEBIAN_FRONTEND=noninteractive apt-get install -y git build-essential cmake python3 casacore-dev
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Package
@@ -85,7 +85,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install -y python3 python3-pip wget unzip git
+          apt-get install -y python3 python3-pip wget unzip git casacore-dev
       - name: Download debian package
         uses: actions/download-artifact@v2
         with:

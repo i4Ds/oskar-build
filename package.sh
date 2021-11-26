@@ -28,8 +28,8 @@ echo "*- Download CASACORE -----------------------------------------------------
 #CASACORE_INC_DIR=$CASACORE_PACKAGE_DIR/usr/include/casacore
 #CASACORE_LIB_DIR=$CASACORE_PACKAGE_DIR/lib
 
-apt-get update
-apt-get install -y casacore-dev
+#apt-get update
+#apt-get install -y casacore-dev
 
 #CASACORE_LIBRARIES=$CASACORE_LIB_DIR
 #ls $CASACORE_LIB_DIR
