@@ -93,6 +93,9 @@ jobs:
       - name: Install debian package
         run: |
           dpkg -i *.deb
+          ls /usr/local/lib
+          ls /usr/local/include/oskar
+          ls /usr/local/bin
       - name: Install Python Interface
         run: |
           pip3 install numpy
