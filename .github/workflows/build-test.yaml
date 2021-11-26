@@ -102,3 +102,10 @@ jobs:
       - name: Test Python interface
         run: |
           python3 test.py
+      - name: Save deb test result
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results Deb ${{ runner.os }}
+          path: |
+            result.vis
+            result.ms
