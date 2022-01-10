@@ -3,8 +3,8 @@ name: Build Binary Packages Linux
 on: [ push ]
 
 jobs:
-  build_oskar:
-    runs-on: ubuntu-20.04
+  build_and_upload:
+    runs-on: ubuntu-latest
     container: ubuntu
     steps:
       - name: Install build tools
@@ -40,10 +40,9 @@ jobs:
           cd casacore-build
           cmake ../casacore-src/
           make
-
   test_user_space_binaries:
     needs: build_and_upload
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: ubuntu
     steps:
       - name: Download binaries
