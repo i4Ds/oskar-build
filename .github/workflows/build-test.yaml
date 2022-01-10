@@ -3,8 +3,8 @@ name: Build Binary Packages Linux
 on: [ push ]
 
 jobs:
-  build_and_upload:
-    runs-on: ubuntu-latest
+  build_oskar:
+    runs-on: ubuntu-20.04
     container: ubuntu
     steps:
       - name: Install build tools
@@ -23,9 +23,27 @@ jobs:
           name: OSKAR Binaries ${{ runner.os }}
           path: |
             oskar-binaries-${{ runner.os }}-x86_64.tar.gz
+  build_casacore:
+    runs-on: ubuntu-20.04
+    container: ubuntu
+    steps:
+      - name: Install build dependencies
+        run: |
+        apt-get install wget build-essential cmake gfortran g++ libncurses5-dev \
+        libreadline-dev flex bison libblas-dev liblapacke-dev libcfitsio-dev \
+        wcslib-dev libfftw3-dev
+      - name: Download tar
+        run: |
+          wget https://github.com/casacore/casacore/archive/refs/tags/v3.4.0.tar.gz
+          tar zxf casacore.tar.gz
+          mkdir casacore-build
+          cd casacore-build
+          cmake ../casacore-src/
+          make
+
   test_user_space_binaries:
     needs: build_and_upload
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     container: ubuntu
     steps:
       - name: Download binaries
@@ -52,63 +70,3 @@ jobs:
           path: |
             package-${{ runner.os }}/result.vis
             package-${{ runner.os }}/result.ms
-  package_deb:
-    needs: build_and_upload
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Download binaries
-        uses: actions/download-artifact@v2
-        with:
-          name: OSKAR Binaries ${{ runner.os }}
-      - name: Unpack binaries
-        run: |
-          tar -xvzf oskar-binaries-${{ runner.os }}-x86_64.tar.gz
-          mkdir oskar
-          cp -r package-${{ runner.os }}/oskar/* oskar/
-      - name: Package binaries as deb
-        run: |
-          chmod +x package-debian.sh
-          bash -e package-debian.sh
-      - name: Upload deb to artefacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Debian_Package
-          path: |
-            *.deb
-  test_deb_package:
-    needs: package_deb
-    runs-on: ubuntu-latest
-    container: ubuntu
-    steps:
-      - name: Install dependencies
-        run: |
-          apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip wget unzip git casacore-dev
-      - name: Download debian package
-        uses: actions/download-artifact@v2
-        with:
-          name: Debian_Package
-      - name: Install debian package
-        run: |
-          dpkg -i *.deb
-          ls /usr/local/lib
-          ls /usr/local/include/oskar
-          ls /usr/local/bin
-      - name: Install Python Interface
-        run: |
-          pip3 install numpy
-          pip3 install --user 'git+https://github.com/i4Ds/OSKAR.git@master#egg=oskarpy&subdirectory=python'
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Test Python interface
-        run: |
-          python3 test.py
-      - name: Save deb test result
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test Results Deb ${{ runner.os }}
-          path: |
-            result.vis
-            result.ms
