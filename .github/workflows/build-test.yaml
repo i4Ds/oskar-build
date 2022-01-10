@@ -29,9 +29,9 @@ jobs:
     steps:
       - name: Install build dependencies
         run: |
-        apt-get install wget build-essential cmake gfortran g++ libncurses5-dev \
-        libreadline-dev flex bison libblas-dev liblapacke-dev libcfitsio-dev \
-        wcslib-dev libfftw3-dev
+          apt-get install wget build-essential cmake gfortran g++ libncurses5-dev \
+          libreadline-dev flex bison libblas-dev liblapacke-dev libcfitsio-dev \
+          wcslib-dev libfftw3-dev
       - name: Download tar
         run: |
           wget https://github.com/casacore/casacore/archive/refs/tags/v3.4.0.tar.gz
