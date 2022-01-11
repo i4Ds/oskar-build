@@ -27,8 +27,8 @@ jobs:
             binaries-Linux-x86_64.tar.gz
 
   install_binaries:
-    needs: build_and_upload
-    runs-on: ubuntu-latest
+    needs: build_binaries
+    runs-on: ubuntu-20.04
     container: ubuntu
     steps:
       - name: Checkout repository
