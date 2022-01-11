@@ -71,3 +71,4 @@ make install
 echo "*- Taring package -------------------------------------------------------------------------- *"
 cd $HOME/binary-package || exit
 tar -zcf binaries-Linux-x86_64.tar.gz *
+cd ../..
