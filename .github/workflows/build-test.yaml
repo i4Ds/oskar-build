@@ -25,7 +25,7 @@ jobs:
         with:
           name: Binaries Linux
           path: |
-            binaries-Linux-x86_64.tar.gz
+            $HOME/binary-package/binaries-Linux-x86_64.tar.gz
   install_binaries:
     needs: build_binaries
     runs-on: ubuntu-20.04
