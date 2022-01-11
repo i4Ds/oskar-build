@@ -71,6 +71,5 @@ echo "*- Installing Oskar ------------------------------------------------------
 echo "*- Taring package -------------------------------------------------------------------------- *"
 touch $HOME/binary-package/test.txt
 cd $HOME/binary-package/
-tar -zcf name.tar.gz *
-readlink -f name.tar.gz
+tar -zcf binaries-Linux.tar.gz *
 ls
