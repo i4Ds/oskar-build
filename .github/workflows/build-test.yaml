@@ -23,8 +23,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Binaries Linux
-          path: |
-            ~/binary-package/binaries-Linux.tar.gz
+          path: ~/binary-package/binaries-Linux.tar.gz
   install_binaries:
     needs: build_binaries
     runs-on: ubuntu-20.04
