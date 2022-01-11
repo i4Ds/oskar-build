@@ -19,13 +19,13 @@ jobs:
         run: |
           chmod +x build.sh
           bash -e build.sh
+          ls
       - name: Archive binaries
         uses: actions/upload-artifact@v2
         with:
           name: Binaries Linux
           path: |
             binaries-Linux-x86_64.tar.gz
-
   install_binaries:
     needs: build_binaries
     runs-on: ubuntu-20.04
