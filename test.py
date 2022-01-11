@@ -12,16 +12,16 @@ def testSimulation():
 
     params = {
         "simulator": {
-            "use_gpus": False,
-            "double_precision": False
+            "use_gpus": "False",
+            "double_precision": "False"
         },
         "observation" : {
-            "num_channels": 64,
-            "start_frequency_hz": 100e6,
-            "frequency_inc_hz": 20e6,
-            "phase_centre_ra_deg": 20,
-            "phase_centre_dec_deg": -30,
-            "num_time_steps": 24,
+            "num_channels": "64",
+            "start_frequency_hz": "100e6",
+            "frequency_inc_hz": "20e6",
+            "phase_centre_ra_deg": "20",
+            "phase_centre_dec_deg": "-30",
+            "num_time_steps": "24",
             "start_time_utc": "01-01-2000 12:00:00.000",
             "length": "12:00:00.000"
         },
@@ -31,8 +31,8 @@ def testSimulation():
         "interferometer": {
             "oskar_vis_filename": "result.vis",
             "ms_filename": "result.ms",
-            "channel_bandwidth_hz": 1e6,
-            "time_average_sec": 10
+            "channel_bandwidth_hz": "1e6",
+            "time_average_sec": "10"
         }
     }
 
