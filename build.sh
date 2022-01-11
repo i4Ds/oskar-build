@@ -70,6 +70,6 @@ echo "*- Installing Oskar ------------------------------------------------------
 #cp test.py package-$RUNNER_OS/
 echo "*- Taring package -------------------------------------------------------------------------- *"
 touch $HOME/binary-package/test.txt
-tar -zcf binaries-Linux-x86_64.tar.gz $HOME/binary-package/*
-cd $HOME
+cd $HOME/binary-package/
+tar -zcf binaries-Linux-x86_64.tar.gz *
 ls

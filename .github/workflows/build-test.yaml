@@ -19,7 +19,6 @@ jobs:
         run: |
           chmod +x build.sh
           bash -e build.sh
-          ls
       - name: Archive binaries
         uses: actions/upload-artifact@v2
         with:
