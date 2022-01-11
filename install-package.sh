@@ -14,4 +14,7 @@ LIBRARY_PATH='LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
 echo "export ${LIBRARY_PATH}${INSTALL_DIR}/casacore/usr/local/lib" >> ~/.bashrc
 echo "export ${LIBRARY_PATH}${INSTALL_DIR}/oskar/lib" >> ~/.bashrc
 
+export ${LIBRARY_PATH}${INSTALL_DIR}/casacore/usr/local/lib
+export ${LIBRARY_PATH}${INSTALL_DIR}/oskar/lib
+
 pip3 install --user 'git+https://github.com/OxfordSKA/OSKAR.git@2.7.6#egg=oskarpy&subdirectory=python'
