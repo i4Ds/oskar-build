@@ -63,7 +63,7 @@ echo "*- Installing Oskar ------------------------------------------------------
 #make install
 
 echo "*- Taring package -------------------------------------------------------------------------- *"
-mv -r ~/oskar-build/telescope.tm binary-package/
-mv ~/oskar-build/test.py binary-package/
+cp -r ~/oskar-build/telescope.tm binary-package/
+cp ~/oskar-build/test.py binary-package/
 cd $HOME/binary-package/
 tar -zcf binaries-Linux.tar.gz *
