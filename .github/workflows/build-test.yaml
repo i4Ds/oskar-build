@@ -68,6 +68,6 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "~/binaries-Linux.tar.gz"
+          artifacts: "./binaries-Linux.tar.gz"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: test
