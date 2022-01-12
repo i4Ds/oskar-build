@@ -12,7 +12,7 @@ jobs:
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -y wget build-essential cmake gfortran g++ libncurses5-dev \
           libreadline-dev flex bison libblas-dev liblapacke-dev libcfitsio-dev \
-          wcslib-dev libfftw3-dev
+          wcslib-dev libfftw3-dev tree
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build Casacore And Oskar
