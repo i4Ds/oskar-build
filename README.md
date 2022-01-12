@@ -6,7 +6,7 @@ This repo builds binaries for Linux based systems (for now only Ubuntu) for [OSK
 
 
 This will download precompiled Binares for Ubuntu Linux and put them in a user space folder, meaning no sudo rights are necessary.
-The binaries contain all dependencies for running oskar from the command line or via the python interface.
+The binaries contain all dependencies (including casacore) for running oskar from the command line or via the python interface.
 
 ```shell
 wget -O - https://raw.githubusercontent.com/i4Ds/oskar-build/master/install-package.sh | bash -s ~/oskar
