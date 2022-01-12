@@ -11,3 +11,5 @@ The binaries contain all dependencies for running oskar from the command line or
 ```shell
 wget -O - https://raw.githubusercontent.com/i4Ds/oskar-build/master/install-package.sh | bash -s ~/oskar
 ```
+
+This command will install the binaries in the ~/oskar folder on your system. This position can be freely adjusted, however make sure you have write-permissions to the folder.
