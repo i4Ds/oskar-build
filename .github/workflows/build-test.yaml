@@ -47,8 +47,7 @@ jobs:
       - name: Test
         shell: bash
         run: |
-#          chmod +x test.sh
-#          bash -e test.sh
+
       - name: Save test result
         uses: actions/upload-artifact@v2
         with:

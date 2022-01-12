@@ -38,9 +38,9 @@ cmake "$CASACORE_SRC_DIR/casacore-$CASACORE_VERSION" \
   -DPYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.8.so.1 \
   -DPYTHON3_INCLUDE_DIR=/usr/include/python3.8 \
 
-make -j8
-make DESTDIR=$CASACORE_INSTALL_DIR install
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASACORE_INSTALL_DIR/usr/local/lib
+#make -j8
+#make DESTDIR=$CASACORE_INSTALL_DIR install
+#LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASACORE_INSTALL_DIR/usr/local/lib
 
 cd "$SRC_DIR" || exit
 
@@ -58,11 +58,12 @@ cmake "$OSKAR_SRC_DIR/OSKAR-$OSKAR_VERSION" -DFIND_CUDA=OFF \
   -DCASACORE_LIB_DIR="$CASACORE_INSTALL_DIR"/usr/local/lib \
   -DCASACORE_INC_DIR="$CASACORE_INSTALL_DIR"/usr/local/include \
 
-make
+#make
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
-make install
+#make install
 
 echo "*- Taring package -------------------------------------------------------------------------- *"
-touch $HOME/binary-package/test.txt
+mv -r ~/oskar-build/telescope.tm binary-package/
+mv ~/oskar-build/test.py binary-package/
 cd $HOME/binary-package/
 tar -zcf binaries-Linux.tar.gz *
