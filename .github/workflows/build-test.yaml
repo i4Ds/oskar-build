@@ -70,3 +70,4 @@ jobs:
         with:
           artifacts: "~/binaries-Linux.tar.gz"
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag: test
