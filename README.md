@@ -2,7 +2,7 @@
 
 This repo builds binaries for Linux based systems (for now only Ubuntu) for [OSKAR](https://github.com/OxfordSKA/OSKAR), a SKA radio astronomy simulation software.
 
-## Installation on Debian (Ubuntu)
+## Installation on Ubuntu
 
 
 This will download precompiled Binares for Ubuntu Linux and put them in a user space folder, meaning no sudo rights are necessary.
