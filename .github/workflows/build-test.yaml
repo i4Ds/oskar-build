@@ -42,8 +42,8 @@ jobs:
       - name: Install
         shell: bash
         run: |
-          chmod +x install-package.sh
-          bash -e install-package.sh ~/pipeline
+          chmod +x install-local-package.sh
+          bash -e install-local-package.sh ~/pipeline
       - name: Test
         shell: bash
         run: |
