@@ -65,6 +65,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: Binaries Linux
+      - name: debug
+        run: |
+          ls
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
