@@ -36,7 +36,7 @@ echo "*- build casacore --------------------------------------------------------
 
 cmake "$CASACORE_SRC_DIR/casacore-$CASACORE_VERSION" \
   -DBUILD_PYTHON3=OFF -DBUILD_PYTHON=OFF \
-  -DMODULE=tables \
+  -DMODULE=ms \
   -DBUILD_TESTING=OFF \
   -DPYTHON3_EXECUTABLE=/usr/bin/python3.8 \
   -DPYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.8.so.1 \
