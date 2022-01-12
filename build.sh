@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+START_DIR=$(pwd)
+
 SRC_DIR=$HOME/src-folder
 PACKAGE_DIR=$HOME/binary-package
 
@@ -63,8 +65,9 @@ echo "*- Installing Oskar ------------------------------------------------------
 #make install
 
 echo "*- Taring package -------------------------------------------------------------------------- *"
-tree ~/
-cp -r ~/oskar-build/telescope.tm binary-package/
-cp ~/oskar-build/test.py binary-package/
+
+cd $START_DIR
+cp -r telescope.tm ~/binary-package/.
+cp test.py ~/binary-package/.
 cd $HOME/binary-package/
 tar -zcf binaries-Linux.tar.gz *
