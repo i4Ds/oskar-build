@@ -60,7 +60,7 @@ tar -xf lapack.tar.gz -C "$LAPACK_SRC_DIR"
 echo "*- build lapack ----------------------------------------------------------------------------- *"
 
 cd "$LAPACK_BUILD_DIR" || exit
-cmake -DCMAKE_INSTALL_LIBDIR=$PACKAGE_DIR "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
+cmake -DCMAKE_INSTALL_LIBDIR=$PACKAGE_DIR/lib "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
 cmake --build . -j --target install
 
 
