@@ -6,15 +6,29 @@ START_DIR=$(pwd)
 SRC_DIR=$HOME/src-folder
 PACKAGE_DIR=$HOME/binary-package
 
+FFTW_VERSION=3.3.10
+FFTW3_SRC_DIR=$SRC_DIR/fftw3
+FFTW3_BUILD_DIR=$FFTW3_SRC_DIR/build
+
+LAPACK_VERSION=3.10.0
+LAPACK_SRC_DIR=$SRC_DIR/lapack
+LAPACK_BUILD_DIR=$LAPACK_SRC_DIR/build
+
 CASACORE_VERSION=3.4.0
 CASACORE_SRC_DIR=$SRC_DIR/casacore
 CASACORE_BUILD_DIR=$CASACORE_SRC_DIR/build
-CASACORE_INSTALL_DIR=$PACKAGE_DIR/casacore
+CASACORE_INSTALL_DIR=$PACKAGE_DIR/
 
 OSKAR_VERSION=2.7.6
 OSKAR_SRC_DIR=$SRC_DIR/oskar
 OSKAR_BUILD_DIR=$OSKAR_SRC_DIR/build
-OSKAR_INSTALL_DIR=$PACKAGE_DIR/oskar
+OSKAR_INSTALL_DIR=$PACKAGE_DIR/
+
+mkdir -p "$LAPACK_SRC_DIR"
+mkdir -p "$LAPACK_BUILD_DIR"
+
+mkdir -p "$FFTW3_SRC_DIR"
+mkdir -p "$FFTW3_BUILD_DIR"
 
 mkdir -p "$CASACORE_SRC_DIR"
 mkdir -p "$CASACORE_BUILD_DIR"
@@ -26,6 +40,31 @@ mkdir -p "$OSKAR_INSTALL_DIR"
 
 cd "$SRC_DIR" || exit
 
+echo "*- download fftw3 -------------------------------------------------------------------------- *"
+
+wget https://www.fftw.org/fftw-$FFTW_VERSION.tar.gz -O fftw3.tar.gz
+tar -xf fftw3.tar.gz -C "$FFTW3_SRC_DIR"
+
+echo "*- build fftw3 ----------------------------------------------------------------------------- *"
+
+cd "$FFTW3_BUILD_DIR" || exit
+cmake "$FFTW3_SRC_DIR/fftw-$FFTW_VERSION"
+make
+make DESTDIR="$PACKAGE_DIR" install
+
+echo "*- download lapack -------------------------------------------------------------------------- *"
+
+wget https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v$LAPACK_VERSION.tar.gz -O lapack.tar.gz
+tar -xf lapack.tar.gz -C "$LAPACK_SRC_DIR"
+
+echo "*- build lapack ----------------------------------------------------------------------------- *"
+
+cd "$LAPACK_BUILD_DIR" || exit
+cmake "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
+make
+make DESTDIR="$PACKAGE_DIR" install
+
+
 echo "*- download casacore ----------------------------------------------------------------------- *"
 
 wget https://github.com/casacore/casacore/archive/refs/tags/v$CASACORE_VERSION.tar.gz -O casacore.tar.gz
@@ -35,15 +74,12 @@ cd "$CASACORE_BUILD_DIR" || exit
 echo "*- build casacore -------------------------------------------------------------------------- *"
 
 cmake "$CASACORE_SRC_DIR/casacore-$CASACORE_VERSION" \
-  -DBUILD_PYTHON3=OFF -DBUILD_PYTHON=OFF \
+  -DBUILD_PYTHON=OFF \
   -DMODULE=ms \
   -DBUILD_TESTING=OFF \
-  -DPYTHON3_EXECUTABLE=/usr/bin/python3.8 \
-  -DPYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.8.so.1 \
-  -DPYTHON3_INCLUDE_DIR=/usr/include/python3.8 \
 
 make -j8
-make DESTDIR=$CASACORE_INSTALL_DIR install
+make DESTDIR="$CASACORE_INSTALL_DIR" install
 #LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASACORE_INSTALL_DIR/usr/local/lib
 
 cd "$SRC_DIR" || exit
