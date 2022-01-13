@@ -5,8 +5,8 @@ mkdir $INSTALL_DIR
 #download archive
 tar zxf binaries-*.tar.gz -C $INSTALL_DIR
 
-export OSKAR_INC_DIR=$INSTALL_DIR/oskar/include
-export OSKAR_LIB_DIR=$INSTALL_DIR/oskar/lib
+export OSKAR_INC_DIR=$INSTALL_DIR/include
+export OSKAR_LIB_DIR=$INSTALL_DIR/lib
 
 # shellcheck disable=SC2016
 LIBRARY_PATH='LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
