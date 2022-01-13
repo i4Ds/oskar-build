@@ -49,9 +49,15 @@ echo "*- build fftw3 -----------------------------------------------------------
 
 cd "$FFTW3_BUILD_DIR" || exit
 cmake "$FFTW3_SRC_DIR/fftw-$FFTW_VERSION"
-"$FFTW3_SRC_DIR"/fftw-$FFTW_VERSION/configure --enable-threads --enable-float
+"$FFTW3_SRC_DIR"/fftw-$FFTW_VERSION/configure --prefix=$PACKAGE_DIR --enable-threads --enable-float --enable-shared --disable-fortran
 make
-make DESTDIR="$PACKAGE_DIR" install
+make install
+make clean
+
+"$FFTW3_SRC_DIR"/fftw-$FFTW_VERSION/configure --prefix=$PACKAGE_DIR --enable-threads --enable-shared --disable-fortran
+make
+make install
+make clean
 
 echo "*- download lapack -------------------------------------------------------------------------- *"
 
