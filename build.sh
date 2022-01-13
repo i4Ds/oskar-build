@@ -40,12 +40,12 @@ mkdir -p "$OSKAR_INSTALL_DIR"
 
 cd "$SRC_DIR" || exit
 
-echo "*- download fftw3 -------------------------------------------------------------------------- *"
+echo "*- download fftw3 --------------------------------------------------------------------------- *"
 
 wget https://www.fftw.org/fftw-$FFTW_VERSION.tar.gz -O fftw3.tar.gz
 tar -xf fftw3.tar.gz -C "$FFTW3_SRC_DIR"
 
-echo "*- build fftw3 ----------------------------------------------------------------------------- *"
+echo "*- build fftw3 ------------------------------------------------------------------------------ *"
 
 cd "$FFTW3_BUILD_DIR" || exit
 cmake "$FFTW3_SRC_DIR/fftw-$FFTW_VERSION"
@@ -60,9 +60,8 @@ tar -xf lapack.tar.gz -C "$LAPACK_SRC_DIR"
 echo "*- build lapack ----------------------------------------------------------------------------- *"
 
 cd "$LAPACK_BUILD_DIR" || exit
-cmake "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
-make
-make DESTDIR="$PACKAGE_DIR" install
+cmake -DCMAKE_INSTALL_LIBDIR=$PACKAGE_DIR "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
+cmake --build . -j --target install
 
 
 echo "*- download casacore ----------------------------------------------------------------------- *"
