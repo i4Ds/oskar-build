@@ -49,6 +49,7 @@ echo "*- build fftw3 -----------------------------------------------------------
 
 cd "$FFTW3_BUILD_DIR" || exit
 cmake "$FFTW3_SRC_DIR/fftw-$FFTW_VERSION"
+"$FFTW3_SRC_DIR"/fftw-$FFTW_VERSION/configure --enable-threads --enable-float
 make
 make DESTDIR="$PACKAGE_DIR" install
 
@@ -60,7 +61,7 @@ tar -xf lapack.tar.gz -C "$LAPACK_SRC_DIR"
 echo "*- build lapack ----------------------------------------------------------------------------- *"
 
 cd "$LAPACK_BUILD_DIR" || exit
-cmake -DCMAKE_INSTALL_LIBDIR=$PACKAGE_DIR/lib "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
+cmake -DCMAKE_INSTALL_LIBDIR=$PACKAGE_DIR/lib -DBUILD_SHARED_LIBS=ON "$LAPACK_SRC_DIR/lapack-$LAPACK_VERSION"
 cmake --build . -j --target install
 
 
