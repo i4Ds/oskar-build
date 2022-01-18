@@ -26,4 +26,4 @@ jobs:
           conda install anaconda
       - name: Publish to Conda
         run: |
-          anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload -u cvoegele /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/conda-bld/linux-64/oskar-*.tar.bz2 --force
