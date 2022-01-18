@@ -20,9 +20,6 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - casacore
-    - python
-    - setuptools
 #    - cudatoolkit-dev=11.4
   host:
     - python
@@ -32,6 +29,7 @@ requirements:
 #    - cudatoolkit=11.4
   run:
     - python
+    - numpy
     - casacore
 #    - cudatoolkit=11.4
 
