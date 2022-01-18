@@ -21,6 +21,6 @@ jobs:
         path: /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
       - name: Publish to Conda
         uses: maxibor/conda-package-publish-action@v1.1
-          with:
-            subDir: 'conda/oskar'
-            AnacondaToken: ${{ secrets.ANACONDA_TOKEN }}
+        with:
+          subDir: 'conda/oskar'
+          AnacondaToken: ${{ secrets.ANACONDA_TOKEN }}
