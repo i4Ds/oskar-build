@@ -1,0 +1,17 @@
+name: Build Conda Package
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    container: conda/miniconda3
+    steps:
+      - name: conda build
+      - uses: actions/checkout@v2
+        run: |
+          cd conda/oskar
+          conda build . -c conda-forge
+          
+
+
