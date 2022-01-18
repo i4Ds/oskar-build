@@ -23,4 +23,4 @@ jobs:
           path: /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
       - name: Publish to Conda
         run: |
-          anaconda -t ${{ secret.ANACONDA_TOKEN }} upload /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_TOKEN }} upload /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
