@@ -1,6 +1,6 @@
 name: Build Binary Packages Linux
 
-on: [ push ]
+on: []
 
 jobs:
   build_binaries:

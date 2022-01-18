@@ -1,0 +1,65 @@
+{% set name = "oskar" %}
+{% set version = "2.7.6" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/OxfordSKA/OSKAR/archive/refs/tags/{{version}}.tar.gz
+  sha256: c53e40ad3aae4747c480b220deb71bd457b172d1029e7f1f323b568a74d0e075
+
+build:
+  number: 0
+
+requirements:
+  build:
+    # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
+    # Compilers are named 'c', 'cxx' and 'fortran'.
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make
+    - casacore
+    - python
+    - setuptools
+#    - cudatoolkit-dev=11.4
+  host:
+    - python
+    - pip
+    - setuptools
+    - casacore
+#    - cudatoolkit=11.4
+  run:
+    - python
+    - casacore
+#    - cudatoolkit=11.4
+
+test:
+##  # Some packages might need a `test/commands` key to check CLI.
+##  # List all the packages/modules that `run_test.py` imports.
+  imports:
+    - oskar
+##  # For python packages, it is useful to run pip check. However, sometimes the
+##  # metadata used by pip is out of date. Thus this section is optional if it is
+##  # failing.
+#  requires:
+#    - pip
+#  commands:
+#    - pip check
+
+about:
+  home: https://github.com/OxfordSKA/OSKAR
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: 'SKA Radio Telescope Simulator'
+  description: |
+    The OSKAR package consists of a number of applications for the simulation of astronomical radio interferometers.
+    OSKAR has been designed primarily to produce simulated data from telescopes that use aperture arrays, as envisaged for the SKA.
+  doc_url: https://ska-telescope.gitlab.io/sim/oskar/
+  dev_url: https://github.com/OxfordSKA/OSKAR
+
+extra:
+  recipe-maintainers:
+    - Christoph Vögele

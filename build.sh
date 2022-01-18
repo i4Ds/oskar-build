@@ -102,7 +102,7 @@ cd "$OSKAR_BUILD_DIR" || exit
 cmake "$OSKAR_SRC_DIR/OSKAR-$OSKAR_VERSION" -DFIND_CUDA=OFF \
   -DCMAKE_INSTALL_PREFIX="$OSKAR_INSTALL_DIR" \
   -DCASACORE_LIB_DIR="$CASACORE_INSTALL_DIR"/usr/local/lib \
-  -DCASACORE_INC_DIR="$CASACORE_INSTALL_DIR"/usr/local/include \
+  -DCASACORE_INC_DIR="$CASACORE_INSTALL_DIR"/usr/local/include
 
 make
 echo "*- Installing Oskar ------------------------------------------------------------------------ *"
