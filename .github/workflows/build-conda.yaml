@@ -18,7 +18,9 @@ jobs:
           conda build . -c conda-forge
       - name: Upload built package as artifact
         uses: actions/upload-artifact@v2
-        path: /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
+        with:
+          name: conda package
+          path: /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
       - name: Publish to Conda
         uses: maxibor/conda-package-publish-action@v1.1
         with:
