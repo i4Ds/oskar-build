@@ -5,7 +5,7 @@ on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-20.04
-    container: cvoegele228/cuda-and-conda
+    container: cvoegele228/cuda-and-conda:v0.0.1
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
