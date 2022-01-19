@@ -18,7 +18,7 @@ jobs:
           dpkg -i cuda-repo-ubuntu2004-11-6-local_11.6.0-510.39.01-1_amd64.deb
           apt-key add /var/cuda-repo-ubuntu2004-11-6-local/7fa2af80.pub
           apt-get update
-          apt-get -y install cuda
+          DEBIAN_FRONTENT=noninteractive apt-get -y install cuda
       - name: Install dependencies
         run: |
           conda install conda-build
