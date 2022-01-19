@@ -14,7 +14,7 @@ jobs:
           conda install conda-build
       - name: Install Cuda
         run: |
-          uname
+
       - name: Build conda
         run: |
           cd conda/oskar
