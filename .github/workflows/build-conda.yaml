@@ -11,12 +11,13 @@ jobs:
         uses: actions/checkout@v2
       - name: Install cuda
         run: |
-          apt-get update && apt-get install -y gnupg2 software-properties-common
-          apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/7fa2af80.pub
-          add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/ /"
-          add-apt-repository contrib
-          apt-get update
-          apt-get -y install cuda
+          apt-get update && apt-get install -y gnupg2 software-properties-common wget
+          wget https://developer.download.nvidia.com/compute/cuda/11.6.0/local_installers/cuda-repo-debian11-11-6-local_11.6.0-510.39.01-1_amd64.deb
+          sudo dpkg -i cuda-repo-debian11-11-6-local_11.6.0-510.39.01-1_amd64.deb
+          sudo apt-key add /var/cuda-repo-debian11-11-6-local/7fa2af80.pub
+          sudo add-apt-repository contrib
+          sudo apt-get update
+          sudo apt-get -y install cuda
       - name: Install dependencies
         run: |
           conda install conda-build
