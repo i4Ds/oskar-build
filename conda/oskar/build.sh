@@ -1,5 +1,11 @@
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+$CC --version
+$CXX --version
+
 mkdir -p $PREFIX
-cmake -DFIND_CUDA=OFF -DCUDA_ARCH="7.0" -DNVCC_COMPILER_BINDIR=$CXX -DCMAKE_INSTALL_PREFIX=$PREFIX
+cmake -DCUDA_ARCH="3.5;3.7;5.0;5.2;6.0;6.1;6.2;7.0;7.5" -DNVCC_COMPILER_BINDIR=$CXX -DCMAKE_INSTALL_PREFIX=$PREFIX
 make -j install
 
 export OSKAR_INC_DIR=$PREFIX/include
