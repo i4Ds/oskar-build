@@ -13,7 +13,6 @@ jobs:
         uses: Jimver/cuda-toolkit@v0.2.5
         with:
           cuda: '11.5.1'
-          method: 'network'
       - name: install Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
