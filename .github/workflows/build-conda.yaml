@@ -14,7 +14,7 @@ jobs:
         with:
           cuda: '11.6.1'
       - name: install Conda
-      - uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
       #     - name: Install cuda
