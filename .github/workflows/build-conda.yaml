@@ -36,6 +36,7 @@ jobs:
 #          echo "conda activate base" >> ~/.bashrc
       - name: Install dependencies
         run: |
+          apt-get install gcc-multilib g++-multilib
           conda install conda-build
       - name: Build conda
         run: |
