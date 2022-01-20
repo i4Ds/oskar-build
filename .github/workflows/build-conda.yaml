@@ -5,7 +5,6 @@ on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-20.04
-    container: ubuntu
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -27,14 +26,14 @@ jobs:
       #          apt-key add /var/cuda-repo-ubuntu2004-11-6-local/7fa2af80.pub
       #          apt-get update
       #          DEBIAN_FRONTEND=noninteractive apt-get -y install cuda
-      - name: Install Miniconda
-        run: |
-          wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh -O ~/miniconda.sh && \
-          /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-          rm ~/miniconda.sh && \
-          ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-          echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-          echo "conda activate base" >> ~/.bashrc
+#      - name: Install Miniconda
+#        run: |
+#          wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh -O ~/miniconda.sh && \
+#          /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+#          rm ~/miniconda.sh && \
+#          ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+#          echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#          echo "conda activate base" >> ~/.bashrc
       - name: Install dependencies
         run: |
           conda install conda-build
