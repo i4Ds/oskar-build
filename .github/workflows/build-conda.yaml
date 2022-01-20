@@ -19,9 +19,6 @@ jobs:
           apt-key add /var/cuda-repo-ubuntu2004-11-6-local/7fa2af80.pub
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get -y install cuda
-      - name: Test cuda installation
-        run: |
-          nvcc --version
       - name: Install Miniconda
         run: |
           wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh -O ~/miniconda.sh && \
