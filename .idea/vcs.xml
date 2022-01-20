@@ -2,17 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/GlobeVision" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/OrganicaDevelop/Packages/OrganicaWild" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Rasterizer" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SKA" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/VISKAR" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/VISKAR/src/geocruncher" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/adventofcode" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/geocruncher" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/hatching" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/lydbook" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/my-app" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/myApp" vcs="Git" />
   </component>
 </project>
