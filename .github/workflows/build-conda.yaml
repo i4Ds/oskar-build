@@ -50,6 +50,7 @@ jobs:
       - name: Install Anaconda for Upload
         run: |
           conda install anaconda
+          source ~/.bashrc
       - name: Publish to Conda
         run: |
           anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/conda-bld/linux-64/oskar-*.tar.bz2 --force
