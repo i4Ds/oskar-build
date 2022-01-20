@@ -16,8 +16,9 @@ requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - gxx_linux-64=7.5
+    - gcc_linux-64=7.5
+    - sysroot_linux-64=2.17
     - cmake
     - make
 #    - cudatoolkit-dev=11.4
