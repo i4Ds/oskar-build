@@ -53,5 +53,6 @@ jobs:
           conda activate base
           conda install anaconda
       - name: Publish to Conda
+        shell: bash -l {0}
         run: |
           anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/conda-bld/linux-64/oskar-*.tar.bz2 --force
