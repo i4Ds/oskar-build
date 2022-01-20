@@ -48,8 +48,8 @@ jobs:
           name: conda package
           path: /usr/local/conda-bld/linux-64/oskar-*.tar.bz2
       - name: Install Anaconda for Upload
+        shell: bash -l {0}
         run: |
-          conda init
           conda activate base
           conda install anaconda
       - name: Publish to Conda
