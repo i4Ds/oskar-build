@@ -1,9 +1,9 @@
-{ % set name = "oskar" % }
-  { % set version = "2.7.6" % }
+{% set name = "oskar" %}
+{% set version = "2.7.6" %}
 
 package:
-  name: { { name|lower } }
-  version: { { version } }
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://github.com/OxfordSKA/OSKAR/archive/refs/tags/{{version}}.tar.gz
