@@ -1,6 +1,3 @@
-$CC --version
-$CXX --version
-
 mkdir -p $PREFIX
 cmake -DCUDA_ARCH="3.5;3.7;5.0;5.2;6.0;6.1;6.2;7.0;7.5" -DNVCC_COMPILER_BINDIR=$CXX -DCMAKE_INSTALL_PREFIX=$PREFIX
 make -j install
