@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies MacOS
         if: matrix.os == 'macOS-10.15'
         run: |
-          brew --version
+          brew install libomp
       - name: Install Conda Build
         run: |
           conda install conda-build
