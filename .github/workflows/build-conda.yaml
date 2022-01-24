@@ -3,7 +3,7 @@ name: Build Conda Package
 on: [ push ]
 
 jobs:
-  build:
+  build_and_upload:
     strategy:
       matrix:
         os: [ macos-10.15,  ubuntu-20.04 ]
@@ -32,7 +32,7 @@ jobs:
         run: |
           conda install conda-build
           conda install anaconda
-#          conda config --set anaconda_upload yes
+      #          conda config --set anaconda_upload yes
       - name: Build conda
         run: |
           cd conda/oskar
@@ -54,3 +54,23 @@ jobs:
         run: |
           conda activate base
           anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2 --force
+
+  install_and_test:
+    depends_on: build_and_upload
+    strategy:
+      matrix:
+        os: [ macos-10.15,  ubuntu-20.04 ]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Install Package
+      run: |
+        $CONDA/bin/conda create -n test_env
+        $CONDA/bin/conda activate test_env
+        $CONDA/bin/conda config --append channels conda-forge
+        $CONDA/bin/conda install -c i4ds oskar
+    - name: Run test
+      run: |
+        $CONDA/bin/conda activate test_env
+        python test.py
