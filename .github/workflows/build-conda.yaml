@@ -28,6 +28,16 @@ jobs:
         if: matrix.os == 'macOS-10.15'
         run: |
           brew install libomp
+          
+          git clone https://github.com/google/googletest
+          cd googletest
+          mkdir build
+          cd build
+          cmake ..
+          make
+          sudo make install
+          cd ../..
+          rm -rf googletest
       - name: Install Conda Build
         run: |
           conda install conda-build
