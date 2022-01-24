@@ -66,11 +66,9 @@ jobs:
       uses: actions/checkout@v2
     - name: Install Package
       run: |
-        $CONDA/bin/conda create -n test_env
-        $CONDA/bin/conda activate test_env
         $CONDA/bin/conda config --append channels conda-forge
         $CONDA/bin/conda install -c i4ds oskar
     - name: Run test
       run: |
-        $CONDA/bin/conda activate test_env
+        $CONDA/bin/conda activate base
         python test.py
