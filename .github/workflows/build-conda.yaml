@@ -47,7 +47,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
       - name: Publish to Conda Linux
         if: matrix.os == 'ubuntu-20.04'
         shell: bash -l {0}
