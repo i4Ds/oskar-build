@@ -1,21 +1,21 @@
-## Precompiled OSKAR Binaries for use as command line tool and python interface.
+## Compiled Conda Packages for OSKAR
 
-This repo builds binaries for Linux based systems (for now only Ubuntu) for [OSKAR](https://github.com/OxfordSKA/OSKAR), a SKA radio astronomy simulation software.
-
-## Installation on Ubuntu
-
-Prerequisites:
-
-- Git
-- wget
-- python3
-- pip3
-
-This will download precompiled OSKAR Binares for Ubuntu Linux and put them in a user space folder, meaning no sudo rights are necessary.
-The binaries contain all dependencies (including casacore) for running oskar from the command line and via the python interface.
+## Installation
 
 ```shell
-wget -O - https://raw.githubusercontent.com/i4Ds/oskar-build/master/install-package.sh | bash -s ~/oskar
+conda install -c i4ds oskar
 ```
 
-This command will install the binaries in the ~/oskar folder on your system (see at the end of the command). This position can be freely adjusted, however make sure you have write-permissions to the folder.
+Requires you to have the conda-forge channel enabled in the environment, you wish to install oskar into.
+
+```shell
+conda config --append channel conda-forge
+#or install with conda-forge channel in the install command
+conda install -c i4ds -c conda-forge oskar
+```
+
+
+### Why Conda?
+
+To enable a simple Installation, with no compilation or other issues, conda is the perfect platform for scientific computing.
+As OSKAR has a c++ backend compilation is required. Conda allows us to bundle all requirements very easily and distribute them to the users.
