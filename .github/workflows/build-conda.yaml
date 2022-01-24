@@ -62,13 +62,17 @@ jobs:
         os: [ macos-10.15,  ubuntu-20.04 ]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Install Package
-      run: |
-        $CONDA/bin/conda config --append channels conda-forge
-        $CONDA/bin/conda install -c i4ds oskar
-    - name: Run test
-      run: |
-        $CONDA/bin/conda activate base
-        python test.py
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+      - name: Install Package
+        run: |
+          conda config --append channels conda-forge
+          conda install -c i4ds oskar
+      - name: Run test
+        run: |
+          conda activate base
+          python test.py
