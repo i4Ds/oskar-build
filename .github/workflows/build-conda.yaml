@@ -6,7 +6,7 @@ jobs:
   build_and_upload:
     strategy:
       matrix:
-        os: [ macos-10.15,  ubuntu-20.04 ]
+        os: [ macos-10.15, ubuntu-20.04 ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -59,7 +59,7 @@ jobs:
     needs: build_and_upload
     strategy:
       matrix:
-        os: [ macos-10.15,  ubuntu-20.04 ]
+        os: [ macos-10.15, ubuntu-20.04 ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -69,10 +69,12 @@ jobs:
         with:
           auto-update-conda: true
       - name: Install Package
+        shell: bash -l {0}
         run: |
           conda config --append channels conda-forge
           conda install -c i4ds oskar
       - name: Run test
+        shell: bash -l {0}
         run: |
           conda activate base
           python test.py
