@@ -42,14 +42,15 @@ jobs:
         with:
           name: conda package
           path: /usr/share/miniconda/conda-bld/*-64/oskar-*.tar.bz2
-#      - name: Install Anaconda for Upload
-#        shell: bash -l {0}
-#        run: |
-#          conda activate base
-
-      - name: Publish to Conda
+      - name: Publish to Conda MacOS
+        if: matrix.os == 'macOS-10.15'
         shell: bash -l {0}
         run: |
           conda activate base
-          [[ "$runner.os" = "macOS" ]] && os="osx" || os="$runner.os"
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/${{ os }}-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
+      - name: Publish to Conda Linux
+        if: matrix.os == 'ubuntu-20.04'
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2 --force
