@@ -51,4 +51,5 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/${{ runner.os }}-64/oskar-*.tar.bz2 --force
+          [[ "$runner.os" = "macOS" ]] && os="osx" || os="$runner.os"
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/${{ os }}-64/oskar-*.tar.bz2 --force
