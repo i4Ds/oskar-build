@@ -31,6 +31,8 @@ jobs:
       - name: Install Conda Build
         run: |
           conda install conda-build
+          conda install anaconda
+          conda config --set anaconda_upload yes
       - name: Build conda
         run: |
           cd conda/oskar
@@ -40,13 +42,13 @@ jobs:
         with:
           name: conda package
           path: /usr/share/miniconda/conda-bld/*-64/oskar-*.tar.bz2
-      - name: Install Anaconda for Upload
-        shell: bash -l {0}
-        run: |
-          conda activate base
-          conda install anaconda
-      - name: Publish to Conda
-        shell: bash -l {0}
-        run: |
-          conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/*-64/oskar-*.tar.bz2 --force
+#      - name: Install Anaconda for Upload
+#        shell: bash -l {0}
+#        run: |
+#          conda activate base
+
+#      - name: Publish to Conda
+#        shell: bash -l {0}
+#        run: |
+#          conda activate base
+#          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/*-64/oskar-*.tar.bz2 --force
