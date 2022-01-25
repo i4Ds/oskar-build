@@ -32,7 +32,6 @@ jobs:
         run: |
           conda install conda-build
           conda install anaconda
-      #          conda config --set anaconda_upload yes
       - name: Build conda
         run: |
           cd conda/oskar
