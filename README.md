@@ -17,5 +17,5 @@ conda install -c i4ds -c conda-forge oskar
 
 ### Why Conda?
 
-To enable a simple Installation, with no compilation or other issues, conda is the perfect platform for scientific computing.
-As OSKAR has a c++ backend compilation is required. Conda allows us to bundle all requirements very easily and distribute them to the users.
+To enable a simple Installation, with no compilation or other inconveniences, conda is the perfect platform for scientific computing.
+As OSKAR has a c++ backend, meaning compilation is required. Conda allows us to do so and bundle all dependencies very easily and distribute them to the users.

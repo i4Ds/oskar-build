@@ -36,12 +36,8 @@ jobs:
       - name: Build conda
         run: |
           cd conda/oskar
-          conda build . -c conda-forge
-      - name: Upload built package as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: conda package
-          path: /usr/share/miniconda/conda-bld/*-64/oskar-*.tar.bz2
+          conda config --append channels conda-forge
+          conda build .
       - name: Publish to Conda MacOS
         if: matrix.os == 'macOS-10.15'
         shell: bash -l {0}
@@ -74,4 +70,3 @@ jobs:
           conda activate base
           conda config --append channels conda-forge
           conda install -c i4ds oskar
-          $CONDA/bin/python test.py
