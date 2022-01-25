@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/OxfordSKA/OSKAR
-  git_rev: {{ version }}
+  url: https://github.com/OxfordSKA/OSKAR/archive/refs/tags/{{version}}.tar.gz
+  sha256: c53e40ad3aae4747c480b220deb71bd457b172d1029e7f1f323b568a74d0e075
 
 build:
   number: 0
