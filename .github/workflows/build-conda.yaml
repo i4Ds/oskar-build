@@ -4,6 +4,7 @@ on: [ push ]
 
 jobs:
   check_tags:
+    runs-on: ubuntu-latest
     steps:
     - name: Check tags in other repository
       uses: cvoegele/action-check-tags-in-another-repo@v1.0.0
