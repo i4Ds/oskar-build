@@ -51,8 +51,7 @@ jobs:
       - name: Build conda
         run: |
           cd conda/oskar
-          var="{% set version = "${{ matrix.version }}" %}"
-          sed -i "1s/.*/$var/" meta.yaml
+          bash -e replace_${{ runner.os }}.sh ${{ version }}
           conda config --append channels conda-forge
           conda build .
       - name: Publish to Conda MacOS
