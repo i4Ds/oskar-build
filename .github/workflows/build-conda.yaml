@@ -3,10 +3,25 @@ name: Build Conda Package
 on: [ push ]
 
 jobs:
+  check_tags:
+    steps:
+    - name: Check tags in other repository
+      uses: cvoegele/action-check-tags-in-another-repo@v1.0.0
+      id: check
+      with:
+        other-repo-name: OSKAR
+        other-repo-owner: OxfordSKA
+    outputs:
+      versions_to_build: ${{ steps.check.outputs.tags }}
+
   build_and_upload:
+    needs: check_tags
     strategy:
+      fail-fast: false # don't stop when one build fails
       matrix:
         os: [ macos-10.15, ubuntu-20.04 ]
+        version: ${{ fromJson(needs.job_1.outputs.matrix) }}
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -35,6 +50,8 @@ jobs:
       - name: Build conda
         run: |
           cd conda/oskar
+          var="{% set version = "${{ matrix.version }}" %}"
+          sed -i "1s/.*/$var/" meta.yaml
           conda config --append channels conda-forge
           conda build .
       - name: Publish to Conda MacOS
