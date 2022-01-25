@@ -71,10 +71,7 @@ jobs:
       - name: Install Package
         shell: bash -l {0}
         run: |
+          conda activate base
           conda config --append channels conda-forge
           conda install -c i4ds oskar
-      - name: Run test
-        shell: bash -l {0}
-        run: |
-          conda activate base
-          python test.py
+          $CONDA/bin/python test.py
