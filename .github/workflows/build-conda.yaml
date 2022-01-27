@@ -6,7 +6,7 @@ jobs:
   build_and_upload:
     strategy:
       matrix:
-        os: [ macos-10.15, ubuntu-20.04 ]
+        os: [ ubuntu-20.04 ]
 
     runs-on: ${{ matrix.os }}
     steps:
