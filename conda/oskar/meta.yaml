@@ -20,7 +20,7 @@ requirements:
     - cmake
     - make
   host:
-    - python
+    - python {{ python }}
     - pip
     - setuptools
     - casacore
