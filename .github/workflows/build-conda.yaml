@@ -21,10 +21,10 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-      #- name: Install dependencies Linux
-      #  if: matrix.os == 'ubuntu-20.04'
-      #  run: |
-      #    sudo apt-get install gcc-multilib g++-multilib
+      - name: Install dependencies Linux
+        if: matrix.os == 'ubuntu-20.04'
+        run: |
+          sudo apt-get install -y gcc-multilib g++-multilib
       #- name: Install dependencies MacOS
       #  if: matrix.os == 'macOS-10.15'
       #  run: |
