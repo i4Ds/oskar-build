@@ -12,32 +12,33 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install Cuda
-        if: matrix.os == 'ubuntu-20.04'
-        uses: Jimver/cuda-toolkit@v0.2.5
-        with:
-          cuda: '11.5.1'
+      #- name: Install Cuda
+      #  if: matrix.os == 'ubuntu-20.04'
+      #  uses: Jimver/cuda-toolkit@v0.2.5
+      #  with:
+      #    cuda: '11.5.1'
       - name: Install Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-      - name: Install dependencies Linux
-        if: matrix.os == 'ubuntu-20.04'
-        run: |
-          sudo apt-get install gcc-multilib g++-multilib
-      - name: Install dependencies MacOS
-        if: matrix.os == 'macOS-10.15'
-        run: |
-          brew install libomp
+      #- name: Install dependencies Linux
+      #  if: matrix.os == 'ubuntu-20.04'
+      #  run: |
+      #    sudo apt-get install gcc-multilib g++-multilib
+      #- name: Install dependencies MacOS
+      #  if: matrix.os == 'macOS-10.15'
+      #  run: |
+      #    brew install libomp
       - name: Install Conda Build
         run: |
           conda install conda-build
+          conda install -c conda-forge mamba boa
           conda install anaconda
       - name: Build conda
         run: |
           cd conda/oskar
           conda config --append channels conda-forge
-          conda build .
+          conda mambabuild .
       - name: Publish to Conda MacOS
         if: matrix.os == 'macOS-10.15'
         shell: bash -l {0}
