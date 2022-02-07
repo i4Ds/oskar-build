@@ -31,13 +31,13 @@ jobs:
       #    brew install libomp
       - name: Install Conda Build
         run: |
+          conda config --append channels conda-forge
           conda install -n base -c conda-forge mamba
           mamba install -c conda-forge boa
           mamba install -c anaconda anaconda
       - name: Build conda
         run: |
           cd conda/oskar
-          conda config --append channels conda-forge
           conda mambabuild .
       - name: Publish to Conda MacOS
         if: matrix.os == 'macOS-10.15'
