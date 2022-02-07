@@ -31,8 +31,9 @@ jobs:
       #    brew install libomp
       - name: Install Conda Build
         run: |
-          conda install -n base -c conda-forge mamba boa
-          conda install anaconda
+          conda install -n base -c conda-forge mamba
+          mamba install -c conda-forge boa
+          mamba install anaconda
       - name: Build conda
         run: |
           cd conda/oskar
