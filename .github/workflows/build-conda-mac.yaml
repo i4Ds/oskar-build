@@ -19,7 +19,7 @@ jobs:
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
-          conda instal -c conda-forge conda-build
+          conda install -c conda-forge conda-build
           conda install -c anaconda anaconda
       - name: Build conda
         run: |
