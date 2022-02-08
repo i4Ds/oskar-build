@@ -16,6 +16,7 @@ jobs:
       - name: Install dependencies MacOS
         run: |
           brew install libomp
+          brew link libomp
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
