@@ -4,7 +4,8 @@ on: [ push ]
 
 jobs:
   build_and_upload:
-    runs-on: ubuntu-20.04
+
+    runs-on:  macos-10.15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -16,6 +17,10 @@ jobs:
         if: matrix.os == 'ubuntu-20.04'
         run: |
           sudo apt-get install -y gcc-multilib g++-multilib
+      - name: Install dependencies MacOS
+        if: matrix.os == 'macOS-10.15'
+        run: |
+          brew install libomp
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
@@ -24,17 +29,18 @@ jobs:
           mamba install -c anaconda anaconda
       - name: Build conda
         run: |
-          cd conda/oskar
+          cd conda-mac/oskar
           conda mambabuild .
-      - name: Publish to Conda Linux
+      - name: Publish to Conda MacOS
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
 
   install_and_test:
     needs: build_and_upload
-    runs-on: ubuntu-20.04
+
+    runs-on: macos-10.15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
