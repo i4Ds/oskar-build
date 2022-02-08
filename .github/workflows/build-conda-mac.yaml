@@ -16,7 +16,6 @@ jobs:
       - name: Install dependencies MacOS
         run: |
           brew install libomp
-          ls /usr/local/Cellar/libomp/13.0.0
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
