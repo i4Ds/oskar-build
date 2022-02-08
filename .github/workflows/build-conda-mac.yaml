@@ -16,6 +16,7 @@ jobs:
       - name: Install dependencies MacOS
         run: |
           brew install libomp
+          ls /usr/local/Cellar/libomp/13.0.0
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
@@ -24,7 +25,7 @@ jobs:
       - name: Build conda
         run: |
           cd conda-mac/oskar
-          export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/usr/local/Cellar/libomp/13.0.0/lib
+          export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/Cellar/libomp/13.0.0/lib
           conda build .
       - name: Publish to Conda MacOS
         shell: bash -l {0}
