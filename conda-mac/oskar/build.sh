@@ -1,5 +1,5 @@
 mkdir -p $PREFIX
-cmake -DCMAKE_INSTALL_PREFIX=$PREFIX
+CC=$CC CXX=$CXX -DCMAKE_INSTALL_PREFIX=$PREFIX
 make -j install
 
 export OSKAR_INC_DIR=$PREFIX/include
