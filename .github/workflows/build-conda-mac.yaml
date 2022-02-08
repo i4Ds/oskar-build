@@ -19,13 +19,12 @@ jobs:
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
-          conda install -n base -c conda-forge mamba
-          mamba install -c conda-forge boa
-          mamba install -c anaconda anaconda
+          conda instal -c conda-forge conda-build
+          conda install -c anaconda anaconda
       - name: Build conda
         run: |
           cd conda-mac/oskar
-          conda mambabuild .
+          conda build .
       - name: Publish to Conda MacOS
         shell: bash -l {0}
         run: |
