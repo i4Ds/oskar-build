@@ -19,6 +19,7 @@ jobs:
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
+          conda install -c anaconda anaconda
           conda install -c anaconda conda-build
       - name: Build conda
         run: |
@@ -28,7 +29,6 @@ jobs:
       - name: Publish to Conda MacOS
         shell: bash -l {0}
         run: |
-          conda install -c anaconda anaconda
           conda activate base
           anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
 
