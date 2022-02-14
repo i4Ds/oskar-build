@@ -15,7 +15,7 @@ jobs:
           auto-update-conda: true
       - name: Install dependencies MacOS
         run: |
-          brew install libomp
+          brew install libompx
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
@@ -24,7 +24,7 @@ jobs:
         run: |
           cd conda-mac/oskar
           export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/Cellar/libomp/13.0.0/lib
-          conda build .
+          conda build - conda-forge .
       - name: Publish to Conda MacOS
         shell: bash -l {0}
         run: |
