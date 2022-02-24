@@ -26,6 +26,7 @@ requirements:
     - setuptools
     - casacore
   run:
+    - cudatoolkit
     - python
     - numpy
     - casacore
