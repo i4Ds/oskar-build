@@ -14,12 +14,11 @@ jobs:
           auto-update-conda: true
       - name: Install Conda Build
         run: |
-          conda config --append channels conda-forge
-          conda install -c anaconda anaconda conda-build
+          conda install anaconda conda-build
       - name: Build conda
         run: |
           cd conda/
-          conda build .
+          conda build -c conda-forge .
       - name: Publish to Conda Linux
         shell: bash -l {0}
         run: |
