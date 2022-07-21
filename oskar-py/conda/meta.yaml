@@ -8,7 +8,6 @@ package:
 build:
   noarch: python
   number: 0
-  script: pip install --no-deps 'git+https://github.com/OxfordSKA/OSKAR.git@{{ version }}#egg=oskarpy&subdirectory=python'
 
 requirements:
   build:
