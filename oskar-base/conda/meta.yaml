@@ -18,9 +18,9 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - libstdcxx # [linux]
-    - libgcc # [linux]
-    - {{ cdt('sysroot_linux') }} # [linux]
+#    - libstdcxx # [linux]
+#    - libgcc # [linux]
+#    - {{ cdt('sysroot_linux') }} # [linux]
   host:
     - casacore
   run:
