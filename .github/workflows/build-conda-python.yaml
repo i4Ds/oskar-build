@@ -27,13 +27,13 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload -l dev /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2
       - name: Publish to Conda Mac
         if: matrix.os == 'macos-latest'
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload -l dev usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2
        
 
   install_and_test:
