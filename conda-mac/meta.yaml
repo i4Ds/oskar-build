@@ -19,13 +19,8 @@ requirements:
     - cmake
     - make
   host:
-    - python {{ python }}
-    - pip
-    - setuptools
     - casacore
   run:
-    - python
-    - numpy
     - casacore
 
 test:

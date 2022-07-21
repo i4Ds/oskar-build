@@ -1,4 +1,4 @@
-{% set version = "2.7.6" %}
+{% set version = "2.8.0" %}
 {% set name = "oskar" %}
 
 package:
@@ -18,15 +18,13 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - casacore
+    - {{ cdt('libstdcxx') }}
+    - {{ cdt('libgcc') }}
+    - {{ cdt('sysroot_linux') }}
   host:
-  run:
-    - numpy
     - casacore
-
-test:
-  imports:
-    - oskar
+  run:
+    - casacore
 
 about:
   home: https://github.com/OxfordSKA/OSKAR
