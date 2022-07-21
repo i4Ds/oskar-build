@@ -20,7 +20,6 @@ requirements:
     - python
     - pip
     - oskar
-    - numpy
   run:
     - {{ pin_compatible('numpy') }}
 
