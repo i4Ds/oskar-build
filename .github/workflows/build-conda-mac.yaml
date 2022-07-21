@@ -28,7 +28,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload -l dev /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload -l dev /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2
 
   install_and_test:
     needs: build_and_upload
