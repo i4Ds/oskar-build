@@ -40,4 +40,4 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskar
+          conda install -c i4ds oskarpy
