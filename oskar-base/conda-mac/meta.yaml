@@ -21,7 +21,6 @@ requirements:
   host:
     - casacore
   run:
-    - casacore
 
 test:
   imports:
