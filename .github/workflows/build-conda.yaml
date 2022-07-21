@@ -17,7 +17,7 @@ jobs:
           conda install anaconda conda-build
       - name: Build conda
         run: |
-          cd conda/
+          cd oskar-base/conda
           conda build -c conda-forge .
       - name: Publish to Conda Linux
         shell: bash -l {0}

@@ -22,7 +22,7 @@ jobs:
           conda install anaconda conda-build
       - name: Build conda
         run: |
-          cd conda-mac/
+          cd oskar-base/conda-mac
           conda build -c conda-forge .
       - name: Publish to Conda MacOS
         shell: bash -l {0}
