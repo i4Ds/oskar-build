@@ -1,0 +1,43 @@
+name: Build Conda Package Linux
+
+on: [ push ]
+
+jobs:
+  build_and_upload:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+      - name: Install Conda Build
+        run: |
+          conda install anaconda conda-build
+      - name: Build conda
+        run: |
+          cd oskar-py/conda
+          conda build -c conda-forge -c i4ds .
+      - name: Publish to Conda Linux
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload -l dev /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2
+
+  install_and_test:
+    needs: build_and_upload
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+      - name: Install Package
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          conda config --append channels conda-forge
+          conda install -c i4ds oskar
