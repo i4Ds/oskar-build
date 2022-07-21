@@ -1,4 +1,4 @@
-name: Build Conda Package Linux
+name: Buildy OSKARPY Packages (Linux/MACOS)
 
 on: [ push ]
 
