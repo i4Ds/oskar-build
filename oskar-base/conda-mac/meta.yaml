@@ -22,9 +22,9 @@ requirements:
     - casacore
   run:
 
-test:
-  imports:
-    - oskar
+#test:
+#  imports:
+#    - oskar
 
 about:
   home: https://github.com/OxfordSKA/OSKAR
