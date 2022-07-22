@@ -14,14 +14,13 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - oskar
+    - oskar={{ version }}
   host:
     - python
     - pip
-    - numpy
+    - oskar={{ version }}
   run:
     - {{ pin_compatible('numpy') }}
-    - oskar
 
 test:
   imports:
