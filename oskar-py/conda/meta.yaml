@@ -18,9 +18,9 @@ requirements:
   host:
     - python
     - pip
-    - oskar={{ version }}
   run:
     - {{ pin_compatible('numpy') }}
+    - oskar={{ version }}
 
 test:
   imports:
