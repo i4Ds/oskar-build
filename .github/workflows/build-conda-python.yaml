@@ -39,7 +39,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  usr/local/miniconda/conda-bld/osx-64/oskarpy-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/local/miniconda/conda-bld/osx-64/oskarpy-*.tar.bz2
   
 
   install_and_test:
