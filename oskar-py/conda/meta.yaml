@@ -6,7 +6,6 @@ package:
   version: {{ version }}
 
 build:
-  noarch: python
   number: 0
 
 requirements:
@@ -15,12 +14,14 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - oskar
   host:
     - python
     - pip
-    - oskar
+    - numpy
   run:
     - {{ pin_compatible('numpy') }}
+    - oskar
 
 test:
   imports:
@@ -30,7 +31,7 @@ about:
   home: https://github.com/OxfordSKA/OSKAR
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: OSKAR/LICENSE
   summary: 'Python-Interface for SKA Radio Telescope Simulator'
   description: |
     The OSKAR package consists of a number of applications for the simulation of astronomical radio interferometers.
