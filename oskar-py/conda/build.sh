@@ -1,4 +1,4 @@
 git clone -b $PKG_VERSION https://github.com/OxfordSKA/OSKAR.git
 
-cd oskar/python
+cd OSKAR/python
 $PYTHON -m pip install --no-deps .
