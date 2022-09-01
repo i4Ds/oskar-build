@@ -12,24 +12,18 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-      - name: Install dependencies Linux
-        run: |
-          sudo apt-get install -y gcc-multilib g++-multilib
       - name: Install Conda Build
         run: |
-          conda config --append channels conda-forge
-          conda install -n base -c conda-forge mamba
-          mamba install -c conda-forge boa
-          mamba install -c anaconda anaconda
+          conda install anaconda conda-build
       - name: Build conda
         run: |
-          cd conda/oskar
-          conda mambabuild .
+          cd oskar-base/conda
+          conda build -c conda-forge .
       - name: Publish to Conda Linux
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2
 
   install_and_test:
     needs: build_and_upload

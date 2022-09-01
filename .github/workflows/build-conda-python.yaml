@@ -1,0 +1,63 @@
+name: Build OSKARPY Packages (Linux/MACOS)
+
+on: [ push ]
+
+jobs:
+  build_and_upload:
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+      - name: Install Conda Build
+        run: |
+          conda install anaconda conda-build
+      - name: Install Linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get install gcc-multilib
+      - name: Build conda
+        run: |
+          cd oskar-py/conda
+          conda build -c conda-forge -c i4ds .
+      - name: Publish to Conda Linux
+        if: matrix.os == 'ubuntu-latest'
+        continue-on-error: true
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2
+      - name: Publish to Conda Mac
+        if: matrix.os == 'macos-latest'
+        continue-on-error: true
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/local/miniconda/conda-bld/osx-64/oskarpy-*.tar.bz2
+  
+
+  install_and_test:
+    needs: build_and_upload
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+      - name: Install Package
+        shell: bash -l {0}
+        run: |
+          conda activate base
+          conda config --append channels conda-forge
+          conda install -c i4ds oskarpy

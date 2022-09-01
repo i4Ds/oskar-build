@@ -13,24 +13,22 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-      - name: Install dependencies MacOS
-        run: |
-          brew install libomp
+#      - name: Install dependencies MacOS
+#        run: |
+#          brew install libomp
       - name: Install Conda Build
         run: |
           conda config --append channels conda-forge
-          conda install -c anaconda anaconda
-          conda install -c anaconda conda-build
+          conda install anaconda conda-build
       - name: Build conda
         run: |
-          cd conda-mac/oskar
-          export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/Cellar/libomp/13.0.0/lib
+          cd oskar-base/conda-mac
           conda build -c conda-forge .
       - name: Publish to Conda MacOS
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2
 
   install_and_test:
     needs: build_and_upload
