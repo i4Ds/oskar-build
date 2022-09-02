@@ -103,7 +103,7 @@ jobs:
           auto-update-conda: true
       - name: Install Conda Build
         run: |
-          conda install anaconda conda-build
+          conda install -n base anaconda conda-build conda-libmamba-solver
       - name: Install Linux dependencies
         if: matrix.os == 'ubuntu-latest'
         run: |
@@ -111,7 +111,7 @@ jobs:
       - name: Build conda
         run: |
           cd oskar-py/conda
-          conda build -c conda-forge -c i4ds .
+          conda build --experimental-solver=libmamba -c conda-forge -c i4ds .
       - name: Publish to Conda Linux
         if: matrix.os == 'ubuntu-latest'
         continue-on-error: true
