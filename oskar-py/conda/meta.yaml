@@ -18,7 +18,7 @@ requirements:
   host:
     - python {{ python }}
     - pip
-    - numpy
+    - numpy >=1.22.*
   run:
     - {{ pin_compatible('numpy') }}
     - oskar={{ version }}
