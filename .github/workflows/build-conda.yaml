@@ -4,6 +4,7 @@ on: [ push ]
 
 jobs:
   build_and_upload_linux:
+    continue-on-error: true
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
@@ -44,7 +45,7 @@ jobs:
   
 
   build_and_upload_mac:
-
+    continue-on-error: true
     runs-on: macos-11
     steps:
       - name: Checkout repository
@@ -111,7 +112,7 @@ jobs:
       - name: Build conda
         run: |
           cd oskar-py/conda
-          conda build --experimental-solver=libmamba -c conda-forge -c i4ds .
+          conda build -c conda-forge -c i4ds .
       - name: Publish to Conda Linux
         if: matrix.os == 'ubuntu-latest'
         continue-on-error: true
