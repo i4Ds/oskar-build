@@ -4,7 +4,6 @@ env:
   VERSION: 2.8.0
 
 on:
-workflow_dispatch:
   push:
     branches:
       - '[0-9]*.[0-9]*.[dev0-9]*'
