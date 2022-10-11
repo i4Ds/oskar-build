@@ -1,6 +1,16 @@
 name: Build Conda Package Linux
 
-on: [ push ]
+env:
+  VERSION: 2.8.0
+
+on:
+workflow_dispatch:
+  push:
+    branches:
+      - '[0-9]*.[0-9]*.[dev0-9]*'
+  pull_request:
+    branches:
+      - '[0-9]*.[0-9]*.[dev0-9]*'
 
 jobs:
   build_and_upload_linux:
@@ -41,7 +51,7 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskar
+          conda install -c i4ds oskar="$VERSION"
   
 
   build_and_upload_mac:
@@ -87,7 +97,7 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskar
+          conda install -c i4ds oskar="$VERSION"
 
   build_and_upload_python:
     needs: [ install_and_test_mac, install_and_test_linux ]
@@ -147,4 +157,4 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskarpy
+          conda install -c i4ds oskarpy="$VERSION"

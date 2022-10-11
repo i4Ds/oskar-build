@@ -1,12 +1,13 @@
-{% set version = "2.8.0" %}
 {% set name = "oskarpy" %}
-
-package:
-  name: {{ name|lower }}
-  version: {{ version }}
 
 build:
   number: 0
+  script_env:
+    - VERSION
+
+package:
+  name: {{ name|lower }}
+  version: {{ VERSION }}
 
 requirements:
   build:
@@ -14,14 +15,14 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - oskar={{ version }}
+    - oskar={{ VERSION }}
   host:
     - python {{ python }}
     - pip
     - numpy
   run:
     - {{ pin_compatible('numpy') }}
-    - oskar={{ version }}
+    - oskar={{ VERSION }}
 
 test:
   imports:
@@ -41,4 +42,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - Christoph Vögele
+    - Lukas Gehrig
