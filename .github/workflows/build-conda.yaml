@@ -2,6 +2,8 @@ name: Build Conda Package Linux
 
 env:
   VERSION: 2.8.0
+  OSKAR_LIB_DIR: /usr/share/miniconda/lib
+  OSKAR_INC_DIR: /usr/share/miniconda/include
 
 on:
   push:

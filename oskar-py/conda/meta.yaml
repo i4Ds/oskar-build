@@ -4,6 +4,8 @@ build:
   number: 0
   script_env:
     - VERSION
+    - OSKAR_INC_DIR
+    - OSKAR_LIB_DIR
 
 package:
   name: {{ name|lower }}
