@@ -2,6 +2,8 @@ name: Build Conda Package Linux
 
 env:
   VERSION: 2.8.dev3
+  #LABEL: main
+  LABEL: dev
 
 on:
   push:
@@ -33,7 +35,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskar-*.tar.bz2 --label $LABEL
 
   install_and_test_linux:
     needs: build_and_upload_linux
@@ -50,7 +52,7 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskar="$VERSION"
+          conda install -c "i4ds/label/$LABEL" -c i4ds oskar="$VERSION"
   
 
   build_and_upload_mac:
@@ -78,7 +80,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/local/miniconda/conda-bld/osx-64/oskar-*.tar.bz2 --label $LABEL
 
   install_and_test_mac:
     needs: build_and_upload_mac
@@ -96,7 +98,7 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskar="$VERSION"
+          conda install -c "i4ds/label/$LABEL" -c i4ds oskar="$VERSION"
 
   build_and_upload_python:
     needs: [ install_and_test_mac, install_and_test_linux ]
@@ -121,21 +123,21 @@ jobs:
       - name: Build conda
         run: |
           cd oskar-py/conda
-          conda build -c conda-forge -c i4ds .
+          conda build -c conda-forge -c "i4ds/label/$LABEL" -c i4ds .
       - name: Publish to Conda Linux
         if: matrix.os == 'ubuntu-latest'
         continue-on-error: true
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2 --label $LABEL
       - name: Publish to Conda Mac
         if: matrix.os == 'macos-latest'
         continue-on-error: true
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/local/miniconda/conda-bld/osx-64/oskarpy-*.tar.bz2
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/local/miniconda/conda-bld/osx-64/oskarpy-*.tar.bz2 --label $LABEL
 
 
   install_and_test_python:
@@ -156,4 +158,4 @@ jobs:
         run: |
           conda activate base
           conda config --append channels conda-forge
-          conda install -c i4ds oskarpy="$VERSION"
+          conda install -c "i4ds/label/$LABEL" -c i4ds oskarpy="$VERSION"

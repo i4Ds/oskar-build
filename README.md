@@ -24,6 +24,7 @@ conda install -c i4ds -c conda-forge oskar
  
 ## Dev Management
 - So that existing builds, which are needed for the user installations, are not overwritten if a change of the build is desired, so-called `dev` branches are to be created from the version branches. For these it is mandatory to **change the version** in `build-conda.yaml` (as described in *Version Management*) to [PEP 440](https://peps.python.org/pep-0440/) comforme dev version. An example would be version `2.8.0` becomes `2.8.dev0`.
+- **In addition, change** `.github/workflows/build-conda.yaml env:LABEL` from `main` to `dev`. This is common setup according to [Anaconda Documentation](https://docs.anaconda.com/anacondaorg/user-guide/tutorials/).
 - The build of the `dev` branches triggers a build and can be referenced using \<pkg>=\<version>. So once the `dev` branch has been tested, it can be merged into the version branch using a pull request, which triggers a new build of the corresponding version.
 - To include the `dev` builds in the current development, the `environment.yaml` can be adjusted to the corresponding version (and channel if necessary).
 - The `dev` branches are not mandatory for the development, because actually the normal builds are considered. However, once a package is live and available for user installation, this procedure is recommended.
