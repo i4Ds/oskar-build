@@ -1,9 +1,9 @@
 name: Build Conda Package Linux
 
 env:
-  VERSION: 2.8.dev3
-  #LABEL: main
-  LABEL: dev
+  VERSION: 2.8.0
+  LABEL: main
+  #LABEL: dev
 
 on:
   push:
