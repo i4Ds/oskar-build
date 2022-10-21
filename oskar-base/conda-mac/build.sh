@@ -13,7 +13,7 @@ make -j install
 cd ..
 rm -rf tmp
 #
-#export OSKAR_INC_DIR=$PREFIX/include
-#export OSKAR_LIB_DIR=$PREFIX/lib
-
+#export OSKAR_INC_DIR=$CONDA_PREFIX/include
+#export OSKAR_LIB_DIR=$CONDA_PREFIX/lib
+#
 #cd $SRC_DIR/python && $PYTHON -m pip install .  -vv
