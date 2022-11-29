@@ -7,7 +7,7 @@ pkgv=$(sed 's/dev//g' <<< "$PKG_VERSION")
 echo $pkgv
 mkdir tmp
 cd tmp
-git clone https://github.com/OxfordSKA/OSKAR.git --depth 1 --branch "$pkgv" --single-branch
+git clone --branch "$pkgv" https://github.com/OxfordSKA/OSKAR.git
 cmake -DCMAKE_INSTALL_PREFIX=$PREFIX
 make -j install
 cd ..
