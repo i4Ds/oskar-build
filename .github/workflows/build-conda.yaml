@@ -1,9 +1,9 @@
 name: Build Conda Package Linux
 
 env:
-  VERSION: 2.8.0
-  LABEL: main
-  #LABEL: dev
+  VERSION: 2.8.dev4
+  #LABEL: main
+  LABEL: dev
 
 on:
   push:
@@ -24,6 +24,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
+          miniconda-version: "latest"
       - name: Install Conda Build
         run: |
           conda install anaconda conda-build
