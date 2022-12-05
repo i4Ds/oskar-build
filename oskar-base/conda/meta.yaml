@@ -15,6 +15,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
+    - cudatoolkit
 #    - libstdcxx # [linux]
 #    - libgcc # [linux]
 #    - {{ cdt('sysroot_linux') }} # [linux]
@@ -37,4 +38,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - Lukas Gehrig
+    - Lukas Gehrig & Vincenzo Timmel
