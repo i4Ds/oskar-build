@@ -15,7 +15,6 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - cudatoolkit
 #    - libstdcxx # [linux]
 #    - libgcc # [linux]
 #    - {{ cdt('sysroot_linux') }} # [linux]
