@@ -27,6 +27,11 @@ jobs:
           auto-activate-base: true
           python-version: 3.9.13
           miniconda-version: 'latest'
+      - name: Enable CUDA
+        uses: Jimver/cuda-toolkit@v0.2.8
+        id: cuda-toolkit
+        with:
+          cuda: '11.7.0'
       - name: Install Conda Build
         run: |
           conda install anaconda conda-build
@@ -38,7 +43,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda*/conda-bld/linux-64/oskar-*.tar.bz2 --label $LABEL
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda*/conda-bld/linux-64/oskar-*.tar.bz2 --label $LABEL --force
 
   install_and_test_linux:
     needs: build_and_upload_linux
