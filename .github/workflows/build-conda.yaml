@@ -41,7 +41,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda*/conda-bld/linux-64/oskar-*.tar.bz2 --label $LABEL --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload /usr/share/miniconda*/conda-bld/linux-64/oskar-*.tar.bz2 --label $LABEL
 
   install_and_test_linux:
     needs: build_and_upload_linux
@@ -147,7 +147,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate base
-          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2 --label $LABEL --force
+          anaconda -t ${{ secrets.ANACONDA_SECRET }} upload  /usr/share/miniconda/conda-bld/linux-64/oskarpy-*.tar.bz2 --label $LABEL
       - name: Publish to Conda Mac
         if: matrix.os == 'macos-latest'
         continue-on-error: true
