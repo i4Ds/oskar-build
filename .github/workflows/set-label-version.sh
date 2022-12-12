@@ -11,3 +11,4 @@ else
 fi
 echo "VERSION=$branch" >> $GITHUB_ENV
 echo "LABEL=$label" >> $GITHUB_ENV
+
