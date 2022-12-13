@@ -139,8 +139,6 @@ jobs:
           sudo apt-get install gcc-multilib
       - name: Build conda
         run: |
-          conda activate base
-          conda install -c "i4ds/label/$LABEL" -c i4ds oskar="$VERSION"
           cd oskar-py/conda
           conda build -c Conda-forge -c "i4ds/label/$LABEL" -c i4ds .
       - name: Publish to Conda Linux
