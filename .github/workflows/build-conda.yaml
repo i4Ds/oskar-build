@@ -139,8 +139,10 @@ jobs:
           sudo apt-get install gcc-multilib
       - name: Build conda
         run: |
+          conda activate base
+          conda install -c "i4ds/label/$LABEL" -c i4ds oskar="$VERSION"
           cd oskar-py/conda
-          conda build -c conda-forge -c "i4ds/label/$LABEL" -c i4ds .
+          conda build -c Conda-forge -c "i4ds/label/$LABEL" -c i4ds .
       - name: Publish to Conda Linux
         if: matrix.os == 'ubuntu-latest'
         continue-on-error: true
@@ -179,3 +181,4 @@ jobs:
           conda activate base
           conda config --append channels conda-forge
           conda install -c "i4ds/label/$LABEL" -c i4ds oskarpy="$VERSION"
+          python test.py
