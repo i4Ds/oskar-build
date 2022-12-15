@@ -4,6 +4,10 @@ build:
   number: 0
   script_env:
     - VERSION
+channels:
+  - nvidia/label/cuda-11.7.0
+  - conda-forge
+  - defaults
 
 package:
   name: {{ name|lower }}
@@ -22,6 +26,7 @@ requirements:
     - numpy
   run:
     - {{ pin_compatible('numpy') }}
+    - cuda-toolkit
     - oskar={{ VERSION }}
 
 test:
