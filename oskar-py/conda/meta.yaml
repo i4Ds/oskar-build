@@ -20,7 +20,6 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cuda-toolkit
     - oskar={{ VERSION }}
   host:
     - {{ pin_compatible('numpy') }}
@@ -29,7 +28,6 @@ requirements:
 
   run:
     - {{ pin_compatible('numpy') }}
-    - cuda-toolkit
     - oskar={{ VERSION }}
 
 test:

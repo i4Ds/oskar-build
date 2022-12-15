@@ -179,4 +179,5 @@ jobs:
           conda activate base
           conda config --append channels conda-forge
           conda install -c "i4ds/label/$LABEL" -c i4ds oskarpy="$VERSION"
+          conda install -c "nvidia/label/cuda-11.7.0" cuda-toolkit
           python test.py
