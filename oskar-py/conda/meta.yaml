@@ -20,10 +20,10 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cuda-toolkit
     - oskar={{ VERSION }}
   host:
     - {{ pin_compatible('numpy') }}
-    - cuda-toolkit
     - python {{ python }}
     - pip
 
@@ -50,4 +50,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - Lukas Gehrig
+    - Lukas Gehrig & Vincenzo Timmel
