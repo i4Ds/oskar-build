@@ -17,12 +17,12 @@ requirements:
     - {{ compiler('cxx') }}
     - oskar={{ VERSION }}
   host:
-    - {{ pin_compatible('numpy') }}
+    - numpy
     - python {{ python }}
     - pip
 
   run:
-    - {{ pin_compatible('numpy') }}
+    - numpy
     - oskar={{ VERSION }}
 
 test:
